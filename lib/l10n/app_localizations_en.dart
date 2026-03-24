@@ -140,11 +140,41 @@ class AppLocalizationsEn extends AppLocalizations {
   String get about => 'About';
 
   @override
-  String get impressum => 'About / Legal';
+  String get impressum => 'Legal Notice & Privacy';
 
   @override
   String get impressumSubtitle =>
       'Reference app for the International Classification of Functioning, Disability and Health';
+
+  @override
+  String get impressumLegal => 'Legal Information (DDG)';
+
+  @override
+  String get responsiblePerson => 'Responsible:';
+
+  @override
+  String get address => 'Address:';
+
+  @override
+  String get email => 'Email:';
+
+  @override
+  String get website => 'Web:';
+
+  @override
+  String get impressumDdgNote =>
+      'Information pursuant to § 5 German Digital Services Act (DDG). Editorially responsible pursuant to § 18 (2) Interstate Media Treaty (MStV).';
+
+  @override
+  String get medicalDeviceNotice => 'Medical Device Notice';
+
+  @override
+  String get medicalDeviceNoticeText =>
+      'This app is not a medical device within the meaning of EU Regulation 2017/745 (MDR). It serves exclusively as a reference tool and information source for the ICF classification. The app does not make diagnoses, give therapy recommendations, or make clinical decisions. It does not replace professional assessment by qualified healthcare personnel.';
+
+  @override
+  String get privacyFullText =>
+      'This app does not collect, process, or store any personal data as defined by the GDPR. All data (favorites, history, settings) is stored exclusively locally on your device and is never transmitted to third parties or external servers. No analytics, tracking, or advertising services are used. No data is shared with third parties. When the app is deleted, all locally stored data is removed.';
 
   @override
   String get licenses => 'Open Source Licenses';

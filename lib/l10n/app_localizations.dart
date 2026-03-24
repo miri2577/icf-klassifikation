@@ -359,7 +359,7 @@ abstract class AppLocalizations {
   /// No description provided for @impressum.
   ///
   /// In de, this message translates to:
-  /// **'Impressum'**
+  /// **'Impressum & Datenschutz'**
   String get impressum;
 
   /// No description provided for @impressumSubtitle.
@@ -367,6 +367,60 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, Behinderung und Gesundheit'**
   String get impressumSubtitle;
+
+  /// No description provided for @impressumLegal.
+  ///
+  /// In de, this message translates to:
+  /// **'Angaben gemäß DDG'**
+  String get impressumLegal;
+
+  /// No description provided for @responsiblePerson.
+  ///
+  /// In de, this message translates to:
+  /// **'Verantwortlich:'**
+  String get responsiblePerson;
+
+  /// No description provided for @address.
+  ///
+  /// In de, this message translates to:
+  /// **'Anschrift:'**
+  String get address;
+
+  /// No description provided for @email.
+  ///
+  /// In de, this message translates to:
+  /// **'E-Mail:'**
+  String get email;
+
+  /// No description provided for @website.
+  ///
+  /// In de, this message translates to:
+  /// **'Web:'**
+  String get website;
+
+  /// No description provided for @impressumDdgNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Inhaltlich verantwortlich gemäß § 18 Abs. 2 Medienstaatsvertrag (MStV).'**
+  String get impressumDdgNote;
+
+  /// No description provided for @medicalDeviceNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweis zu Medizinprodukten'**
+  String get medicalDeviceNotice;
+
+  /// No description provided for @medicalDeviceNoticeText.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese App ist kein Medizinprodukt im Sinne der EU-Verordnung 2017/745 (MDR). Sie dient ausschließlich als Nachschlagewerk und Informationsquelle zur ICF-Klassifikation. Die App stellt keine Diagnosen, gibt keine Therapieempfehlungen und trifft keine klinischen Entscheidungen. Sie ersetzt in keinem Fall die fachliche Einschätzung durch qualifiziertes Gesundheitspersonal.'**
+  String get medicalDeviceNoticeText;
+
+  /// No description provided for @privacyFullText.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese App erhebt, verarbeitet und speichert keine personenbezogenen Daten im Sinne der DSGVO. Alle Daten (Favoriten, Verlauf, Einstellungen) werden ausschließlich lokal auf Ihrem Gerät gespeichert und zu keinem Zeitpunkt an Dritte oder externe Server übermittelt. Es werden keine Analyse-, Tracking- oder Werbedienste eingesetzt. Es erfolgt keine Weitergabe von Daten an Dritte. Bei Löschung der App werden alle lokal gespeicherten Daten entfernt.'**
+  String get privacyFullText;
 
   /// No description provided for @licenses.
   ///

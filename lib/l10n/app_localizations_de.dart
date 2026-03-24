@@ -141,11 +141,41 @@ class AppLocalizationsDe extends AppLocalizations {
   String get about => 'Über die App';
 
   @override
-  String get impressum => 'Impressum';
+  String get impressum => 'Impressum & Datenschutz';
 
   @override
   String get impressumSubtitle =>
       'Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, Behinderung und Gesundheit';
+
+  @override
+  String get impressumLegal => 'Angaben gemäß DDG';
+
+  @override
+  String get responsiblePerson => 'Verantwortlich:';
+
+  @override
+  String get address => 'Anschrift:';
+
+  @override
+  String get email => 'E-Mail:';
+
+  @override
+  String get website => 'Web:';
+
+  @override
+  String get impressumDdgNote =>
+      'Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG). Inhaltlich verantwortlich gemäß § 18 Abs. 2 Medienstaatsvertrag (MStV).';
+
+  @override
+  String get medicalDeviceNotice => 'Hinweis zu Medizinprodukten';
+
+  @override
+  String get medicalDeviceNoticeText =>
+      'Diese App ist kein Medizinprodukt im Sinne der EU-Verordnung 2017/745 (MDR). Sie dient ausschließlich als Nachschlagewerk und Informationsquelle zur ICF-Klassifikation. Die App stellt keine Diagnosen, gibt keine Therapieempfehlungen und trifft keine klinischen Entscheidungen. Sie ersetzt in keinem Fall die fachliche Einschätzung durch qualifiziertes Gesundheitspersonal.';
+
+  @override
+  String get privacyFullText =>
+      'Diese App erhebt, verarbeitet und speichert keine personenbezogenen Daten im Sinne der DSGVO. Alle Daten (Favoriten, Verlauf, Einstellungen) werden ausschließlich lokal auf Ihrem Gerät gespeichert und zu keinem Zeitpunkt an Dritte oder externe Server übermittelt. Es werden keine Analyse-, Tracking- oder Werbedienste eingesetzt. Es erfolgt keine Weitergabe von Daten an Dritte. Bei Löschung der App werden alle lokal gespeicherten Daten entfernt.';
 
   @override
   String get licenses => 'Open-Source-Lizenzen';
