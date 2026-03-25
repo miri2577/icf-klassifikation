@@ -2,7 +2,7 @@
 
 Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, Behinderung und Gesundheit (ICF) der Weltgesundheitsorganisation (WHO).
 
-**[Web-App starten](https://eingliederungshilfe.cloud/icf/)** | **[Website](https://eingliederungshilfe.cloud)** | **[Download (macOS)](https://github.com/miri2577/icf-klassifikation/releases)**
+**[Web-App starten](https://eingliederungshilfe.cloud/icf/)** | **[Website](https://eingliederungshilfe.cloud)** | **[Download (macOS / Android)](https://github.com/miri2577/icf-klassifikation/releases)**
 
 ## Features
 
@@ -25,7 +25,7 @@ Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, 
 | Plattform | Status |
 |-----------|--------|
 | iOS | Verfügbar (App Store in Kürze) |
-| Android | Verfügbar (Google Play in Kürze) |
+| Android | [APK Download](https://github.com/miri2577/icf-klassifikation/releases) |
 | macOS | [Download](https://github.com/miri2577/icf-klassifikation/releases) |
 | Web | [Web-App](https://eingliederungshilfe.cloud/icf/) |
 | Windows | Build verfügbar |
@@ -80,7 +80,7 @@ Mirko Richter — [mirko.richter@eingliederungshilfe.cloud](mailto:mirko.richter
 
 Reference app for the International Classification of Functioning, Disability and Health (ICF) by the World Health Organization (WHO).
 
-**[Launch Web App](https://eingliederungshilfe.cloud/icf/)** | **[Website](https://eingliederungshilfe.cloud)** | **[Download (macOS)](https://github.com/miri2577/icf-klassifikation/releases)**
+**[Launch Web App](https://eingliederungshilfe.cloud/icf/)** | **[Website](https://eingliederungshilfe.cloud)** | **[Download (macOS / Android)](https://github.com/miri2577/icf-klassifikation/releases)**
 
 ## Features
 
@@ -103,7 +103,7 @@ Reference app for the International Classification of Functioning, Disability an
 | Platform | Status |
 |----------|--------|
 | iOS | Available (App Store coming soon) |
-| Android | Available (Google Play coming soon) |
+| Android | [APK Download](https://github.com/miri2577/icf-klassifikation/releases) |
 | macOS | [Download](https://github.com/miri2577/icf-klassifikation/releases) |
 | Web | [Web App](https://eingliederungshilfe.cloud/icf/) |
 | Windows | Build available |
