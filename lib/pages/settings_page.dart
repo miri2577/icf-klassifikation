@@ -91,7 +91,7 @@ class SettingsPage extends ConsumerWidget {
               showLicensePage(
                 context: context,
                 applicationName: 'ICF Klassifikation',
-                applicationVersion: '1.0.0',
+                applicationVersion: '1.2.0',
                 applicationIcon: Padding(
                   padding: const EdgeInsets.all(8),
                   child: ClipRRect(
@@ -112,7 +112,7 @@ class SettingsPage extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.code),
             title: Text(l10n.version),
-            subtitle: const Text('1.0.0+1'),
+            subtitle: const Text('1.2.0'),
           ),
 
           const SizedBox(height: 32),

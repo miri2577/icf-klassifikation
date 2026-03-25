@@ -2,7 +2,7 @@ name: icf_app
 description: "ICF Klassifikation Nachschlagewerk"
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.2.0+3
 
 environment:
   sdk: ^3.9.2
