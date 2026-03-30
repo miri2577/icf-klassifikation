@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICF Klassifikation – Nachschlagewerk der WHO-Klassifikation</title>
     <meta name="description" content="ICF Klassifikation App: Alle 1.417 ICF-Codes mit Beschreibungen, Qualifier-Builder, Favoriten und PDF-Export. Offline nutzbar, datenschutzkonform.">
+    <meta property="og:title" content="ICF Klassifikation – Nachschlagewerk der WHO-Klassifikation">
+    <meta property="og:description" content="1.417 ICF-Codes mit Beschreibungen, Qualifier-Builder, Favoriten und PDF-Export. Offline, datenschutzkonform.">
+    <meta property="og:image" content="https://eingliederungshilfe.cloud/icf-icon.png">
+    <meta property="og:url" content="https://eingliederungshilfe.cloud/icf-klassifikation.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -186,7 +192,15 @@
             width: 100%;
             height: auto;
             display: block;
+            cursor: pointer;
         }
+
+        /* Lightbox */
+        .lightbox { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; cursor: pointer; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; box-shadow: 0 0 40px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: 20px; right: 24px; color: #fff; font-size: 2rem; cursor: pointer; opacity: 0.7; transition: opacity 0.2s; }
+        .lightbox-close:hover { opacity: 1; }
 
         .screenshot-placeholder {
             aspect-ratio: 9/16;
@@ -301,14 +315,20 @@
                 <h2 class="section-title">Screenshots</h2>
                 <div class="screenshots" id="screenshots">
                     <div class="screenshot-card">
-                        <img src="screenshots/icf-uebersicht.png" alt="ICF Klassifikation – Dom&auml;nen&uuml;bersicht mit Suche und Kapitel-Navigation" loading="lazy">
+                        <img src="screenshots/icf-uebersicht.png" alt="ICF Klassifikation – Dom&auml;nen&uuml;bersicht mit Suche und Kapitel-Navigation" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                     <div class="screenshot-card">
-                        <img src="screenshots/icf-kategorien.png" alt="ICF Klassifikation – Kategorien mit Unterkategorien aufklappbar" loading="lazy">
+                        <img src="screenshots/icf-kategorien.png" alt="ICF Klassifikation – Kategorien mit Unterkategorien aufklappbar" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
                     <div class="screenshot-card">
-                        <img src="screenshots/icf-detail.png" alt="ICF Klassifikation – Code-Detailansicht mit Qualifier-Builder" loading="lazy">
+                        <img src="screenshots/icf-detail.png" alt="ICF Klassifikation – Code-Detailansicht mit Qualifier-Builder" loading="lazy" onclick="openLightbox(this.src)">
                     </div>
+                </div>
+
+                <!-- Lightbox -->
+                <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+                    <span class="lightbox-close">&times;</span>
+                    <img id="lightbox-img" src="" alt="Vergr&ouml;&szlig;erung">
                 </div>
             </div>
         </section>
@@ -450,6 +470,17 @@
     document.getElementById('btn-font-down').addEventListener('click', function() { if (fontLevel > 0) fontLevel--; applyFont(); });
     document.getElementById('btn-contrast').addEventListener('click', function() { contrast = !contrast; applyContrast(); });
 })();
+
+function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
 </html>
