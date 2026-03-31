@@ -901,6 +901,64 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'{count} Unterkategorien'**
   String subCategoriesCount(int count);
+
+  // --- Onboarding ---
+  String get onboardingSkip;
+  String get onboardingNext;
+  String get onboardingStart;
+  String get onboardingWelcomeTitle;
+  String get onboardingWelcomeText;
+  String get onboardingDomainsTitle;
+  String get onboardingDomainsText;
+  String get onboardingSearchTitle;
+  String get onboardingSearchText;
+  String get onboardingSearchTip1;
+  String get onboardingSearchTip2;
+  String get onboardingQualifierTitle;
+  String get onboardingQualifierText;
+  String get onboardingQualifierExample;
+  String get onboardingQualifierExampleDesc;
+  String get onboardingFavoritesTitle;
+  String get onboardingFavoritesText;
+  String get onboardingFavoritesTip1;
+  String get onboardingFavoritesTip2;
+  String get onboardingPrivacyNote;
+
+  // --- Privacy Policy ---
+  String get privacyPolicyTitle;
+  String get privacyPolicyLastUpdated;
+  String get privacyPolicyOverviewTitle;
+  String get privacyPolicyOverviewText;
+  String get privacyPolicyDataTitle;
+  String get privacyPolicyDataText;
+  String get privacyPolicyNoCollectionTitle;
+  String get privacyPolicyNoCollectionText;
+  String get privacyPolicyPermissionsTitle;
+  String get privacyPolicyPermissionsText;
+  String get privacyPolicyChildrenTitle;
+  String get privacyPolicyChildrenText;
+  String get privacyPolicyRightsTitle;
+  String get privacyPolicyRightsText;
+  String get privacyPolicyContactTitle;
+  String get privacyPolicyContactText;
+
+  // --- Terms of Service ---
+  String get termsOfServiceTitle;
+  String get termsLastUpdated;
+  String get termsAcceptanceTitle;
+  String get termsAcceptanceText;
+  String get termsUsageTitle;
+  String get termsUsageText;
+  String get termsIntellectualPropertyTitle;
+  String get termsIntellectualPropertyText;
+  String get termsMedicalDisclaimerTitle;
+  String get termsMedicalDisclaimerText;
+  String get termsLiabilityTitle;
+  String get termsLiabilityText;
+  String get termsChangesTitle;
+  String get termsChangesText;
+  String get termsContactTitle;
+  String get termsContactText;
 }
 
 class _AppLocalizationsDelegate

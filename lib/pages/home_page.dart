@@ -22,7 +22,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _showPrivacyDialog());
+    WidgetsBinding.instance.addPostFrameCallback((_) => _checkOnboarding());
   }
 
   @override
@@ -32,29 +32,11 @@ class _HomePageState extends ConsumerState<HomePage> {
     super.dispose();
   }
 
-  Future<void> _showPrivacyDialog() async {
+  void _checkOnboarding() {
     final prefs = ref.read(sharedPreferencesProvider);
-    if (prefs.getBool('privacy_accepted') == true) return;
-    final l10n = AppLocalizations.of(context)!;
-
-    await showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (ctx) => AlertDialog(
-        icon: const Icon(Icons.privacy_tip_outlined, size: 40),
-        title: Text(l10n.privacyTitle),
-        content: Text(l10n.privacyText),
-        actions: [
-          FilledButton(
-            onPressed: () {
-              prefs.setBool('privacy_accepted', true);
-              Navigator.pop(ctx);
-            },
-            child: Text(l10n.privacyAccept),
-          ),
-        ],
-      ),
-    );
+    if (prefs.getBool('onboarding_completed') != true) {
+      context.go('/onboarding');
+    }
   }
 
   void _onSearchChanged(String value) {

@@ -84,6 +84,18 @@ class SettingsPage extends ConsumerWidget {
             onTap: () => context.push('/impressum'),
           ),
           ListTile(
+            leading: const Icon(Icons.privacy_tip_outlined),
+            title: Text(l10n.privacyPolicyTitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/privacy-policy'),
+          ),
+          ListTile(
+            leading: const Icon(Icons.gavel_outlined),
+            title: Text(l10n.termsOfServiceTitle),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push('/terms-of-service'),
+          ),
+          ListTile(
             leading: const Icon(Icons.description_outlined),
             title: Text(l10n.licenses),
             trailing: const Icon(Icons.chevron_right),
