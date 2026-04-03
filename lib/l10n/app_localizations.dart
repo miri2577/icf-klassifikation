@@ -902,62 +902,316 @@ abstract class AppLocalizations {
   /// **'{count} Unterkategorien'**
   String subCategoriesCount(int count);
 
-  // --- Onboarding ---
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Überspringen'**
   String get onboardingSkip;
-  String get onboardingNext;
+
+  /// No description provided for @onboardingStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht\'s'**
   String get onboardingStart;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get onboardingNext;
+
+  /// No description provided for @onboardingWelcomeTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Willkommen bei ICF Klassifikation'**
   String get onboardingWelcomeTitle;
+
+  /// No description provided for @onboardingWelcomeText.
+  ///
+  /// In de, this message translates to:
+  /// **'Ihr digitales Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, Behinderung und Gesundheit.'**
   String get onboardingWelcomeText;
+
+  /// No description provided for @onboardingDomainsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Vier Domänen'**
   String get onboardingDomainsTitle;
+
+  /// No description provided for @onboardingDomainsText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die ICF ist in vier Domänen gegliedert: Körperfunktionen (b), Körperstrukturen (s), Aktivitäten & Partizipation (d) und Umweltfaktoren (e).'**
   String get onboardingDomainsText;
+
+  /// No description provided for @onboardingSearchTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Schnelle Suche'**
   String get onboardingSearchTitle;
+
+  /// No description provided for @onboardingSearchText.
+  ///
+  /// In de, this message translates to:
+  /// **'Finden Sie jeden ICF-Code in Sekundenschnelle.'**
   String get onboardingSearchText;
+
+  /// No description provided for @onboardingSearchTip1.
+  ///
+  /// In de, this message translates to:
+  /// **'Suchen Sie nach Code (z.B. b710) oder Begriff'**
   String get onboardingSearchTip1;
+
+  /// No description provided for @onboardingSearchTip2.
+  ///
+  /// In de, this message translates to:
+  /// **'Filtern Sie nach Domäne über die Tabs'**
   String get onboardingSearchTip2;
+
+  /// No description provided for @onboardingQualifierTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Qualifier-Builder'**
   String get onboardingQualifierTitle;
+
+  /// No description provided for @onboardingQualifierText.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauen Sie ICF-Codes mit Qualifiern interaktiv zusammen.'**
   String get onboardingQualifierText;
+
+  /// No description provided for @onboardingQualifierExample.
+  ///
+  /// In de, this message translates to:
+  /// **'b710.2'**
   String get onboardingQualifierExample;
+
+  /// No description provided for @onboardingQualifierExampleDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Funktionen der Gelenkbeweglichkeit – mäßig beeinträchtigt'**
   String get onboardingQualifierExampleDesc;
+
+  /// No description provided for @onboardingFavoritesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Favoriten & Export'**
   String get onboardingFavoritesTitle;
+
+  /// No description provided for @onboardingFavoritesText.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern Sie häufig genutzte Codes und exportieren Sie sie als PDF.'**
   String get onboardingFavoritesText;
+
+  /// No description provided for @onboardingFavoritesTip1.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippen Sie auf das Herz, um Codes zu speichern'**
   String get onboardingFavoritesTip1;
+
+  /// No description provided for @onboardingFavoritesTip2.
+  ///
+  /// In de, this message translates to:
+  /// **'Exportieren Sie Ihre Sammlung als PDF'**
   String get onboardingFavoritesTip2;
+
+  /// No description provided for @onboardingPrivacyNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Daten bleiben auf Ihrem Gerät. Kein Tracking, kein Internet nötig.'**
   String get onboardingPrivacyNote;
 
-  // --- Privacy Policy ---
+  /// No description provided for @privacyPolicyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutzerklärung'**
   String get privacyPolicyTitle;
+
+  /// No description provided for @privacyPolicyLastUpdated.
+  ///
+  /// In de, this message translates to:
+  /// **'Stand: April 2026'**
   String get privacyPolicyLastUpdated;
+
+  /// No description provided for @privacyPolicyOverviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Überblick'**
   String get privacyPolicyOverviewTitle;
+
+  /// No description provided for @privacyPolicyOverviewText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die ICF Klassifikation App respektiert Ihre Privatsphäre. Diese App erhebt, speichert und überträgt keine personenbezogenen Daten.'**
   String get privacyPolicyOverviewText;
-  String get privacyPolicyDataTitle;
-  String get privacyPolicyDataText;
+
+  /// No description provided for @privacyPolicyNoCollectionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Datenerhebung'**
   String get privacyPolicyNoCollectionTitle;
+
+  /// No description provided for @privacyPolicyNoCollectionText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die App erhebt keinerlei personenbezogene Daten.'**
   String get privacyPolicyNoCollectionText;
+
+  /// No description provided for @privacyPolicyDataTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lokale Datenspeicherung'**
+  String get privacyPolicyDataTitle;
+
+  /// No description provided for @privacyPolicyDataText.
+  ///
+  /// In de, this message translates to:
+  /// **'Favoriten, Verlauf und Einstellungen werden ausschließlich lokal auf Ihrem Gerät gespeichert.'**
+  String get privacyPolicyDataText;
+
+  /// No description provided for @privacyPolicyPermissionsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Berechtigungen'**
   String get privacyPolicyPermissionsTitle;
+
+  /// No description provided for @privacyPolicyPermissionsText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die App benötigt keine besonderen Berechtigungen. Sie funktioniert vollständig offline.'**
   String get privacyPolicyPermissionsText;
+
+  /// No description provided for @privacyPolicyChildrenTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kinder'**
   String get privacyPolicyChildrenTitle;
+
+  /// No description provided for @privacyPolicyChildrenText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die App richtet sich an Fachkräfte im Gesundheitswesen und erhebt keine Daten von Kindern.'**
   String get privacyPolicyChildrenText;
+
+  /// No description provided for @privacyPolicyRightsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ihre Rechte'**
   String get privacyPolicyRightsTitle;
+
+  /// No description provided for @privacyPolicyRightsText.
+  ///
+  /// In de, this message translates to:
+  /// **'Da keine personenbezogenen Daten erhoben werden, bestehen keine Ansprüche auf Auskunft, Berichtigung oder Löschung.'**
   String get privacyPolicyRightsText;
+
+  /// No description provided for @privacyPolicyContactTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kontakt'**
   String get privacyPolicyContactTitle;
+
+  /// No description provided for @privacyPolicyContactText.
+  ///
+  /// In de, this message translates to:
+  /// **'mirko.richter@eingliederungshilfe.cloud'**
   String get privacyPolicyContactText;
 
-  // --- Terms of Service ---
+  /// No description provided for @termsOfServiceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsbedingungen'**
   String get termsOfServiceTitle;
+
+  /// No description provided for @termsLastUpdated.
+  ///
+  /// In de, this message translates to:
+  /// **'Stand: April 2026'**
   String get termsLastUpdated;
+
+  /// No description provided for @termsAcceptanceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzungsvereinbarung'**
   String get termsAcceptanceTitle;
+
+  /// No description provided for @termsAcceptanceText.
+  ///
+  /// In de, this message translates to:
+  /// **'Durch die Nutzung dieser App akzeptieren Sie diese Bedingungen.'**
   String get termsAcceptanceText;
+
+  /// No description provided for @termsUsageTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestimmungsgemäße Nutzung'**
   String get termsUsageTitle;
+
+  /// No description provided for @termsUsageText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die App dient als Nachschlagewerk für die ICF-Klassifikation.'**
   String get termsUsageText;
+
+  /// No description provided for @termsIntellectualPropertyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Geistiges Eigentum'**
   String get termsIntellectualPropertyTitle;
+
+  /// No description provided for @termsIntellectualPropertyText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die ICF ist geistiges Eigentum der WHO. Die deutsche Fassung wurde vom BfArM veröffentlicht.'**
   String get termsIntellectualPropertyText;
+
+  /// No description provided for @termsMedicalDisclaimerTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Medizinischer Haftungsausschluss'**
   String get termsMedicalDisclaimerTitle;
+
+  /// No description provided for @termsMedicalDisclaimerText.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese App ist kein Medizinprodukt im Sinne der EU-Verordnung 2017/745 (MDR).'**
   String get termsMedicalDisclaimerText;
+
+  /// No description provided for @termsLiabilityTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Haftung'**
   String get termsLiabilityTitle;
+
+  /// No description provided for @termsLiabilityText.
+  ///
+  /// In de, this message translates to:
+  /// **'Für die Richtigkeit und Vollständigkeit der Inhalte wird keine Gewähr übernommen.'**
   String get termsLiabilityText;
+
+  /// No description provided for @termsChangesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Änderungen'**
   String get termsChangesTitle;
+
+  /// No description provided for @termsChangesText.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Bedingungen können bei Bedarf aktualisiert werden.'**
   String get termsChangesText;
+
+  /// No description provided for @termsContactTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Kontakt'**
   String get termsContactTitle;
+
+  /// No description provided for @termsContactText.
+  ///
+  /// In de, this message translates to:
+  /// **'Mirko Richter\nmirko.richter@eingliederungshilfe.cloud'**
   String get termsContactText;
 }
 

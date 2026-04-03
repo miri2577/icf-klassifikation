@@ -458,187 +458,182 @@ class AppLocalizationsDe extends AppLocalizations {
     return '$count Unterkategorien';
   }
 
-  // --- Onboarding ---
   @override
   String get onboardingSkip => 'Überspringen';
-
-  @override
-  String get onboardingNext => 'Weiter';
 
   @override
   String get onboardingStart => 'Los geht\'s';
 
   @override
-  String get onboardingWelcomeTitle => 'Willkommen bei\nICF Klassifikation';
+  String get onboardingNext => 'Weiter';
+
+  @override
+  String get onboardingWelcomeTitle => 'Willkommen bei ICF Klassifikation';
 
   @override
   String get onboardingWelcomeText =>
-      'Ihr umfassendes Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, Behinderung und Gesundheit (ICF) der WHO – komplett offline verfügbar.';
+      'Ihr digitales Nachschlagewerk für die Internationale Klassifikation der Funktionsfähigkeit, Behinderung und Gesundheit.';
 
   @override
   String get onboardingDomainsTitle => 'Vier Domänen';
 
   @override
   String get onboardingDomainsText =>
-      'Die ICF ist in vier Bereiche gegliedert. Navigieren Sie einfach über die Tabs am unteren Bildschirmrand.';
+      'Die ICF ist in vier Domänen gegliedert: Körperfunktionen (b), Körperstrukturen (s), Aktivitäten & Partizipation (d) und Umweltfaktoren (e).';
 
   @override
-  String get onboardingSearchTitle => 'Suche & Details';
+  String get onboardingSearchTitle => 'Schnelle Suche';
 
   @override
   String get onboardingSearchText =>
-      'Finden Sie schnell jeden ICF-Code über die Suchleiste – nach Code oder Begriff.';
+      'Finden Sie jeden ICF-Code in Sekundenschnelle.';
 
   @override
   String get onboardingSearchTip1 =>
-      'Tippen Sie auf einen Code, um Details, Beschreibungen und Hierarchie zu sehen';
+      'Suchen Sie nach Code (z.B. b710) oder Begriff';
 
   @override
-  String get onboardingSearchTip2 =>
-      'Inklusions- und Exklusionshinweise helfen bei der korrekten Zuordnung';
+  String get onboardingSearchTip2 => 'Filtern Sie nach Domäne über die Tabs';
 
   @override
   String get onboardingQualifierTitle => 'Qualifier-Builder';
 
   @override
   String get onboardingQualifierText =>
-      'Erstellen Sie ICF-Codes mit Beurteilungsmerkmalen direkt in der App – inklusive Schweregrad-Auswahl.';
+      'Bauen Sie ICF-Codes mit Qualifiern interaktiv zusammen.';
 
   @override
-  String get onboardingQualifierExample => 'Beispiel:';
+  String get onboardingQualifierExample => 'b710.2';
 
   @override
   String get onboardingQualifierExampleDesc =>
-      'b710.2 = Gelenkbeweglichkeit mit mäßig ausgeprägtem Problem (25–49%)';
+      'Funktionen der Gelenkbeweglichkeit – mäßig beeinträchtigt';
 
   @override
   String get onboardingFavoritesTitle => 'Favoriten & Export';
 
   @override
   String get onboardingFavoritesText =>
-      'Speichern Sie häufig verwendete Codes als Favoriten und exportieren Sie diese als PDF.';
+      'Speichern Sie häufig genutzte Codes und exportieren Sie sie als PDF.';
 
   @override
   String get onboardingFavoritesTip1 =>
-      'Tippen Sie auf das Herz-Symbol, um Codes zu speichern';
+      'Tippen Sie auf das Herz, um Codes zu speichern';
 
   @override
-  String get onboardingFavoritesTip2 =>
-      'Exportieren Sie Ihre Favoriten-Sammlung als PDF-Dokument';
+  String get onboardingFavoritesTip2 => 'Exportieren Sie Ihre Sammlung als PDF';
 
   @override
   String get onboardingPrivacyNote =>
-      '100% offline – Ihre Daten bleiben auf Ihrem Gerät';
+      'Alle Daten bleiben auf Ihrem Gerät. Kein Tracking, kein Internet nötig.';
 
-  // --- Privacy Policy ---
   @override
   String get privacyPolicyTitle => 'Datenschutzerklärung';
 
   @override
-  String get privacyPolicyLastUpdated => 'Stand: März 2026';
+  String get privacyPolicyLastUpdated => 'Stand: April 2026';
 
   @override
   String get privacyPolicyOverviewTitle => 'Überblick';
 
   @override
   String get privacyPolicyOverviewText =>
-      'Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Diese Datenschutzerklärung informiert Sie darüber, wie die App „ICF Klassifikation" mit Ihren Daten umgeht. Verantwortlicher im Sinne der DSGVO ist Mirko Richter, Stillerzeile 29, 12587 Berlin.';
-
-  @override
-  String get privacyPolicyDataTitle => 'Lokale Datenspeicherung';
-
-  @override
-  String get privacyPolicyDataText =>
-      'Die App speichert folgende Daten ausschließlich lokal auf Ihrem Gerät:\n\n• Favoriten: Von Ihnen gespeicherte ICF-Codes\n• Verlauf: Zuletzt angesehene Codes (max. 20 Einträge)\n• Einstellungen: Gewähltes Design (hell/dunkel/system) und Sprache (DE/EN)\n\nDiese Daten werden über SharedPreferences in der App-Sandbox Ihres Geräts gespeichert und sind für andere Apps nicht zugänglich. Bei Deinstallation der App werden alle Daten automatisch gelöscht.';
+      'Die ICF Klassifikation App respektiert Ihre Privatsphäre. Diese App erhebt, speichert und überträgt keine personenbezogenen Daten.';
 
   @override
   String get privacyPolicyNoCollectionTitle => 'Keine Datenerhebung';
 
   @override
   String get privacyPolicyNoCollectionText =>
-      'Diese App:\n\n• Erhebt keine personenbezogenen Daten\n• Überträgt keine Daten an externe Server\n• Verwendet keine Analyse- oder Tracking-Dienste\n• Setzt keine Cookies oder ähnliche Technologien ein\n• Zeigt keine Werbung an\n• Enthält keine Social-Media-Plugins\n\nDie App funktioniert vollständig offline. Eine Internetverbindung ist nicht erforderlich.';
+      'Die App erhebt keinerlei personenbezogene Daten.';
 
   @override
-  String get privacyPolicyPermissionsTitle => 'App-Berechtigungen';
+  String get privacyPolicyDataTitle => 'Lokale Datenspeicherung';
+
+  @override
+  String get privacyPolicyDataText =>
+      'Favoriten, Verlauf und Einstellungen werden ausschließlich lokal auf Ihrem Gerät gespeichert.';
+
+  @override
+  String get privacyPolicyPermissionsTitle => 'Berechtigungen';
 
   @override
   String get privacyPolicyPermissionsText =>
-      'Die App benötigt keine besonderen Geräteberechtigungen. Lediglich für den PDF-Export und die Teilen-Funktion werden die üblichen System-Dialoge verwendet, die vom Betriebssystem bereitgestellt werden.';
+      'Die App benötigt keine besonderen Berechtigungen. Sie funktioniert vollständig offline.';
 
   @override
-  String get privacyPolicyChildrenTitle => 'Kinder und Jugendliche';
+  String get privacyPolicyChildrenTitle => 'Kinder';
 
   @override
   String get privacyPolicyChildrenText =>
-      'Da diese App keine personenbezogenen Daten erhebt, bestehen keine besonderen Risiken für Kinder und Jugendliche. Die App kann bedenkenlos von Personen jeden Alters genutzt werden.';
+      'Die App richtet sich an Fachkräfte im Gesundheitswesen und erhebt keine Daten von Kindern.';
 
   @override
-  String get privacyPolicyRightsTitle => 'Ihre Rechte (DSGVO)';
+  String get privacyPolicyRightsTitle => 'Ihre Rechte';
 
   @override
   String get privacyPolicyRightsText =>
-      'Da keine personenbezogenen Daten erhoben werden, entfallen die typischen Betroffenenrechte nach Art. 15–21 DSGVO (Auskunft, Berichtigung, Löschung etc.) in der Praxis. Sollten Sie dennoch Fragen zum Datenschutz haben, können Sie sich jederzeit an uns wenden.';
+      'Da keine personenbezogenen Daten erhoben werden, bestehen keine Ansprüche auf Auskunft, Berichtigung oder Löschung.';
 
   @override
   String get privacyPolicyContactTitle => 'Kontakt';
 
   @override
   String get privacyPolicyContactText =>
-      'Bei Fragen zum Datenschutz wenden Sie sich bitte an:\n\nMirko Richter\nE-Mail: mirko.richter@eingliederungshilfe.cloud';
+      'mirko.richter@eingliederungshilfe.cloud';
 
-  // --- Terms of Service ---
   @override
   String get termsOfServiceTitle => 'Nutzungsbedingungen';
 
   @override
-  String get termsLastUpdated => 'Stand: März 2026';
+  String get termsLastUpdated => 'Stand: April 2026';
 
   @override
-  String get termsAcceptanceTitle => 'Geltungsbereich';
+  String get termsAcceptanceTitle => 'Nutzungsvereinbarung';
 
   @override
   String get termsAcceptanceText =>
-      'Mit der Nutzung der App „ICF Klassifikation" erklären Sie sich mit diesen Nutzungsbedingungen einverstanden. Die App wird von Mirko Richter, Stillerzeile 29, 12587 Berlin, bereitgestellt.';
+      'Durch die Nutzung dieser App akzeptieren Sie diese Bedingungen.';
 
   @override
   String get termsUsageTitle => 'Bestimmungsgemäße Nutzung';
 
   @override
   String get termsUsageText =>
-      'Die App dient ausschließlich als Nachschlagewerk und Informationsquelle für die ICF-Klassifikation der WHO. Sie ist bestimmt für Fachkräfte im Gesundheits- und Sozialwesen, Studierende und Interessierte. Die Nutzung erfolgt auf eigene Verantwortung.';
+      'Die App dient als Nachschlagewerk für die ICF-Klassifikation.';
 
   @override
   String get termsIntellectualPropertyTitle => 'Geistiges Eigentum';
 
   @override
   String get termsIntellectualPropertyText =>
-      'Die ICF ist geistiges Eigentum der Weltgesundheitsorganisation (WHO). Die deutsche Übersetzung wurde vom Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM, ehemals DIMDI) erstellt. Die Nutzung der ICF-Inhalte in dieser App erfolgt zu Informations- und Nachschlagezwecken. Eine kommerzielle Weiterverwendung der Inhalte ist nicht gestattet.';
+      'Die ICF ist geistiges Eigentum der WHO. Die deutsche Fassung wurde vom BfArM veröffentlicht.';
 
   @override
   String get termsMedicalDisclaimerTitle => 'Medizinischer Haftungsausschluss';
 
   @override
   String get termsMedicalDisclaimerText =>
-      'Diese App ist kein Medizinprodukt im Sinne der EU-Verordnung 2017/745 (MDR). Sie stellt keine Diagnosen, gibt keine Therapieempfehlungen und trifft keine klinischen Entscheidungen. Die App ersetzt in keinem Fall die fachliche Einschätzung durch qualifiziertes Gesundheitspersonal. Bei gesundheitlichen Fragen wenden Sie sich an einen Arzt oder eine andere qualifizierte Fachkraft.';
+      'Diese App ist kein Medizinprodukt im Sinne der EU-Verordnung 2017/745 (MDR).';
 
   @override
-  String get termsLiabilityTitle => 'Haftungsbeschränkung';
+  String get termsLiabilityTitle => 'Haftung';
 
   @override
   String get termsLiabilityText =>
-      'Die Inhalte der App werden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen wird jedoch keine Gewähr übernommen. Die Nutzung der App erfolgt auf eigenes Risiko. Ansprüche auf Schadensersatz sind – soweit gesetzlich zulässig – ausgeschlossen.';
+      'Für die Richtigkeit und Vollständigkeit der Inhalte wird keine Gewähr übernommen.';
 
   @override
   String get termsChangesTitle => 'Änderungen';
 
   @override
   String get termsChangesText =>
-      'Diese Nutzungsbedingungen können jederzeit angepasst werden. Änderungen treten mit der Veröffentlichung einer neuen App-Version in Kraft. Bei wesentlichen Änderungen wird im App-Update darauf hingewiesen.';
+      'Diese Bedingungen können bei Bedarf aktualisiert werden.';
 
   @override
   String get termsContactTitle => 'Kontakt';
 
   @override
   String get termsContactText =>
-      'Bei Fragen zu den Nutzungsbedingungen wenden Sie sich bitte an:\n\nMirko Richter\nE-Mail: mirko.richter@eingliederungshilfe.cloud';
+      'Mirko Richter\nmirko.richter@eingliederungshilfe.cloud';
 }

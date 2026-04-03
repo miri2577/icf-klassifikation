@@ -444,187 +444,178 @@ class AppLocalizationsEn extends AppLocalizations {
     return '$count sub-categories';
   }
 
-  // --- Onboarding ---
   @override
   String get onboardingSkip => 'Skip';
-
-  @override
-  String get onboardingNext => 'Next';
 
   @override
   String get onboardingStart => 'Get Started';
 
   @override
-  String get onboardingWelcomeTitle => 'Welcome to\nICF Classification';
+  String get onboardingNext => 'Next';
+
+  @override
+  String get onboardingWelcomeTitle => 'Welcome to ICF Classification';
 
   @override
   String get onboardingWelcomeText =>
-      'Your comprehensive reference for the International Classification of Functioning, Disability and Health (ICF) by the WHO – fully available offline.';
+      'Your digital reference for the International Classification of Functioning, Disability and Health.';
 
   @override
   String get onboardingDomainsTitle => 'Four Domains';
 
   @override
   String get onboardingDomainsText =>
-      'The ICF is organized into four areas. Navigate easily via the tabs at the bottom of the screen.';
+      'The ICF is structured in four domains: Body Functions (b), Body Structures (s), Activities & Participation (d) and Environmental Factors (e).';
 
   @override
-  String get onboardingSearchTitle => 'Search & Details';
+  String get onboardingSearchTitle => 'Quick Search';
 
   @override
-  String get onboardingSearchText =>
-      'Quickly find any ICF code via the search bar – by code or keyword.';
+  String get onboardingSearchText => 'Find any ICF code in seconds.';
 
   @override
-  String get onboardingSearchTip1 =>
-      'Tap on a code to see details, descriptions and hierarchy';
+  String get onboardingSearchTip1 => 'Search by code (e.g. b710) or keyword';
 
   @override
-  String get onboardingSearchTip2 =>
-      'Inclusion and exclusion notes help with correct classification';
+  String get onboardingSearchTip2 => 'Filter by domain using the tabs';
 
   @override
   String get onboardingQualifierTitle => 'Qualifier Builder';
 
   @override
   String get onboardingQualifierText =>
-      'Build ICF codes with qualifiers directly in the app – including severity selection.';
+      'Build ICF codes with qualifiers interactively.';
 
   @override
-  String get onboardingQualifierExample => 'Example:';
+  String get onboardingQualifierExample => 'b710.2';
 
   @override
   String get onboardingQualifierExampleDesc =>
-      'b710.2 = Mobility of joint functions with moderate problem (25–49%)';
+      'Mobility of joint functions – moderate impairment';
 
   @override
   String get onboardingFavoritesTitle => 'Favorites & Export';
 
   @override
   String get onboardingFavoritesText =>
-      'Save frequently used codes as favorites and export them as PDF.';
+      'Save frequently used codes and export them as PDF.';
 
   @override
-  String get onboardingFavoritesTip1 =>
-      'Tap the heart icon to save codes';
+  String get onboardingFavoritesTip1 => 'Tap the heart to save codes';
 
   @override
-  String get onboardingFavoritesTip2 =>
-      'Export your favorites collection as a PDF document';
+  String get onboardingFavoritesTip2 => 'Export your collection as PDF';
 
   @override
   String get onboardingPrivacyNote =>
-      '100% offline – your data stays on your device';
+      'All data stays on your device. No tracking, no internet required.';
 
-  // --- Privacy Policy ---
   @override
   String get privacyPolicyTitle => 'Privacy Policy';
 
   @override
-  String get privacyPolicyLastUpdated => 'Last updated: March 2026';
+  String get privacyPolicyLastUpdated => 'Last updated: April 2026';
 
   @override
   String get privacyPolicyOverviewTitle => 'Overview';
 
   @override
   String get privacyPolicyOverviewText =>
-      'Protecting your personal data is important to us. This privacy policy explains how the app "ICF Classification" handles your data. The data controller under GDPR is Mirko Richter, Stillerzeile 29, 12587 Berlin, Germany.';
-
-  @override
-  String get privacyPolicyDataTitle => 'Local Data Storage';
-
-  @override
-  String get privacyPolicyDataText =>
-      'The app stores the following data exclusively on your device:\n\n• Favorites: ICF codes you have saved\n• History: Recently viewed codes (max. 20 entries)\n• Settings: Selected theme (light/dark/system) and language (DE/EN)\n\nThis data is stored via SharedPreferences in your device\'s app sandbox and is not accessible by other apps. All data is automatically deleted when the app is uninstalled.';
+      'The ICF Classification app respects your privacy. This app does not collect, store, or transmit any personal data.';
 
   @override
   String get privacyPolicyNoCollectionTitle => 'No Data Collection';
 
   @override
   String get privacyPolicyNoCollectionText =>
-      'This app:\n\n• Does not collect any personal data\n• Does not transmit data to external servers\n• Does not use analytics or tracking services\n• Does not use cookies or similar technologies\n• Does not display advertisements\n• Does not contain social media plugins\n\nThe app works completely offline. No internet connection is required.';
+      'The app does not collect any personal data.';
 
   @override
-  String get privacyPolicyPermissionsTitle => 'App Permissions';
+  String get privacyPolicyDataTitle => 'Local Data Storage';
+
+  @override
+  String get privacyPolicyDataText =>
+      'Favorites, history, and settings are stored exclusively on your device.';
+
+  @override
+  String get privacyPolicyPermissionsTitle => 'Permissions';
 
   @override
   String get privacyPolicyPermissionsText =>
-      'The app does not require any special device permissions. Only for PDF export and the share function are the standard system dialogs provided by the operating system used.';
+      'The app does not require any special permissions. It works completely offline.';
 
   @override
   String get privacyPolicyChildrenTitle => 'Children';
 
   @override
   String get privacyPolicyChildrenText =>
-      'Since this app does not collect any personal data, there are no special risks for children. The app can safely be used by people of any age.';
+      'The app is intended for healthcare professionals and does not collect data from children.';
 
   @override
-  String get privacyPolicyRightsTitle => 'Your Rights (GDPR)';
+  String get privacyPolicyRightsTitle => 'Your Rights';
 
   @override
   String get privacyPolicyRightsText =>
-      'Since no personal data is collected, the typical data subject rights under Art. 15–21 GDPR (access, rectification, erasure, etc.) do not apply in practice. If you have any questions about data protection, you can contact us at any time.';
+      'Since no personal data is collected, there are no claims for access, rectification, or deletion.';
 
   @override
   String get privacyPolicyContactTitle => 'Contact';
 
   @override
   String get privacyPolicyContactText =>
-      'For data protection inquiries, please contact:\n\nMirko Richter\nEmail: mirko.richter@eingliederungshilfe.cloud';
+      'mirko.richter@eingliederungshilfe.cloud';
 
-  // --- Terms of Service ---
   @override
   String get termsOfServiceTitle => 'Terms of Service';
 
   @override
-  String get termsLastUpdated => 'Last updated: March 2026';
+  String get termsLastUpdated => 'Last updated: April 2026';
 
   @override
-  String get termsAcceptanceTitle => 'Scope';
+  String get termsAcceptanceTitle => 'Agreement';
 
   @override
   String get termsAcceptanceText =>
-      'By using the app "ICF Classification", you agree to these terms of service. The app is provided by Mirko Richter, Stillerzeile 29, 12587 Berlin, Germany.';
+      'By using this app, you accept these terms.';
 
   @override
   String get termsUsageTitle => 'Intended Use';
 
   @override
   String get termsUsageText =>
-      'The app serves exclusively as a reference tool and information source for the WHO ICF classification. It is intended for healthcare and social service professionals, students and interested parties. Use is at your own responsibility.';
+      'The app serves as a reference for the ICF classification.';
 
   @override
   String get termsIntellectualPropertyTitle => 'Intellectual Property';
 
   @override
   String get termsIntellectualPropertyText =>
-      'The ICF is the intellectual property of the World Health Organization (WHO). The German translation was produced by the Federal Institute for Drugs and Medical Devices (BfArM, formerly DIMDI). The use of ICF content in this app is for informational and reference purposes. Commercial redistribution of the content is not permitted.';
+      'The ICF is the intellectual property of the WHO. The German version was published by BfArM.';
 
   @override
   String get termsMedicalDisclaimerTitle => 'Medical Disclaimer';
 
   @override
   String get termsMedicalDisclaimerText =>
-      'This app is not a medical device within the meaning of EU Regulation 2017/745 (MDR). It does not make diagnoses, give therapy recommendations, or make clinical decisions. The app does not replace professional assessment by qualified healthcare personnel. For health-related questions, consult a doctor or other qualified professional.';
+      'This app is not a medical device under EU Regulation 2017/745 (MDR).';
 
   @override
-  String get termsLiabilityTitle => 'Limitation of Liability';
+  String get termsLiabilityTitle => 'Liability';
 
   @override
   String get termsLiabilityText =>
-      'The content of the app is created with the greatest possible care. However, no guarantee is given for the accuracy, completeness and timeliness of the information provided. Use of the app is at your own risk. Claims for damages are excluded to the extent permitted by law.';
+      'No guarantee is given for accuracy or completeness.';
 
   @override
   String get termsChangesTitle => 'Changes';
 
   @override
-  String get termsChangesText =>
-      'These terms of service may be updated at any time. Changes take effect with the release of a new app version. Significant changes will be noted in the app update.';
+  String get termsChangesText => 'These terms may be updated as needed.';
 
   @override
   String get termsContactTitle => 'Contact';
 
   @override
   String get termsContactText =>
-      'For questions about these terms of service, please contact:\n\nMirko Richter\nEmail: mirko.richter@eingliederungshilfe.cloud';
+      'Mirko Richter\nmirko.richter@eingliederungshilfe.cloud';
 }
