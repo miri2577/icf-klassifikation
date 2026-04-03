@@ -4,24 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzerkl&auml;rung - eingliederungshilfe.cloud</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #009CDE; --bg: #f8fafc; --card-bg: #fff; --text: #1a1a2e; --text-light: #64748b; --border: #e2e8f0; }
-        @media (prefers-color-scheme: dark) { :root { --bg: #0f172a; --card-bg: #1e293b; --text: #e2e8f0; --text-light: #94a3b8; --border: #334155; } }
+        :root {
+            --primary: #3b9ece;
+            --bg: #0b1117;
+            --card-bg: rgba(255,255,255,0.04);
+            --text: rgba(255,255,255,0.88);
+            --text-light: rgba(255,255,255,0.52);
+            --border: rgba(255,255,255,0.07);
+            --font-display: 'Fraunces', Georgia, serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+        }
+        body.light-mode {
+            --bg: #f4f5f7;
+            --card-bg: #fff;
+            --text: rgba(0,0,0,0.85);
+            --text-light: rgba(0,0,0,0.55);
+            --border: rgba(0,0,0,0.08);
+            --primary: #1a7ab5;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.7; }
         .container { max-width: 720px; margin: 0 auto; padding: 40px 24px; }
-        h1 { font-size: 1.8rem; margin-bottom: 8px; color: var(--primary); }
+        h1 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 8px; color: var(--primary); }
         .subtitle { color: var(--text-light); margin-bottom: 32px; }
-        h2 { font-size: 1.2rem; margin-top: 32px; margin-bottom: 12px; }
+        h2 { font-family: var(--font-display); font-size: 1.2rem; margin-top: 32px; margin-bottom: 12px; }
         p, li { margin-bottom: 10px; }
         ul { padding-left: 24px; }
         a { color: var(--primary); }
         .back { display: inline-block; margin-bottom: 24px; color: var(--primary); text-decoration: none; font-weight: 500; }
         .back:hover { text-decoration: underline; }
+
+        /* Accessibility */
+        .a11y-bar {
+            position: fixed; top: 16px; right: 16px; z-index: 50;
+            display: flex; gap: 4px;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(16px);
+            border: 1px solid var(--border); border-radius: 10px; padding: 5px;
+        }
+        body.light-mode .a11y-bar { background: rgba(255,255,255,0.8); border-color: rgba(0,0,0,0.08); }
+        .a11y-btn {
+            width: 32px; height: 32px; border: none; border-radius: 7px;
+            background: transparent; color: var(--text-light); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem; transition: all 0.2s;
+        }
+        .a11y-btn:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+        body.light-mode .a11y-btn { color: rgba(0,0,0,0.5); }
+        body.light-mode .a11y-btn:hover { background: rgba(0,0,0,0.06); color: rgba(0,0,0,0.8); }
+
+        body.font-large { font-size: 118% !important; }
+        body.font-xlarge { font-size: 140% !important; }
+
+        a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
         footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--text-light); font-size: 0.85rem; text-align: center; }
+        footer a { color: var(--primary); }
     </style>
 </head>
 <body>
+
+<div class="a11y-bar" role="toolbar" aria-label="Barrierefreiheit">
+    <button class="a11y-btn" id="btn-font-down" title="Schrift verkleinern" aria-label="Schrift verkleinern">A&#8595;</button>
+    <button class="a11y-btn" id="btn-font-up" title="Schrift vergr&ouml;&szlig;ern" aria-label="Schrift vergr&ouml;&szlig;ern">A&#8593;</button>
+    <button class="a11y-btn" id="btn-theme" title="Helles Design" aria-label="Helles Design aktivieren">&#9728;</button>
+</div>
+
 <div class="container">
     <a href="index.html" class="back">&larr; Zurück zur Übersicht</a>
     <h1>Datenschutzerkl&auml;rung</h1>
@@ -105,5 +157,43 @@
         <p>&copy; 2026 Mirko Richter &middot; <a href="impressum.html">Impressum</a> &middot; <a href="index.html">eingliederungshilfe.cloud</a></p>
     </footer>
 </div>
+
+<script>
+(function() {
+    var fl = parseInt(localStorage.getItem('a11y-font') || '0');
+    var theme = localStorage.getItem('a11y-theme') || 'dark';
+    function applyFont() {
+        document.body.classList.remove('font-large', 'font-xlarge');
+        if (fl === 1) document.body.classList.add('font-large');
+        if (fl >= 2) document.body.classList.add('font-xlarge');
+        localStorage.setItem('a11y-font', fl);
+    }
+    function applyTheme() {
+        document.body.classList.remove('light-mode');
+        var btn = document.getElementById('btn-theme');
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+            btn.textContent = '\u263D';
+            btn.title = 'Dunkles Design';
+            btn.setAttribute('aria-label', 'Dunkles Design aktivieren');
+        } else {
+            btn.textContent = '\u2600';
+            btn.title = 'Helles Design';
+            btn.setAttribute('aria-label', 'Helles Design aktivieren');
+        }
+        localStorage.setItem('a11y-theme', theme);
+    }
+    applyFont();
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else { init(); }
+    function init() {
+        applyTheme();
+        document.getElementById('btn-font-up').addEventListener('click', function() { if (fl < 2) fl++; applyFont(); });
+        document.getElementById('btn-font-down').addEventListener('click', function() { if (fl > 0) fl--; applyFont(); });
+        document.getElementById('btn-theme').addEventListener('click', function() { theme = (theme === 'dark') ? 'light' : 'dark'; applyTheme(); });
+    }
+})();
+</script>
 </body>
 </html>
