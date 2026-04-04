@@ -157,6 +157,7 @@
         .forum-nav-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 16px rgba(59,158,206,0.35);
+            filter: brightness(1.1);
         }
         .forum-nav-btn svg { opacity: 0.85; }
         body.light-mode .top-nav { border-bottom-color: rgba(0,0,0,0.06); }
@@ -404,6 +405,11 @@
     <nav class="top-nav">
         <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;">
             <span style="font-family:var(--font-display);font-weight:600;font-size:0.9rem;color:var(--c-text);">eingliederungshilfe.cloud</span>
+            <div style="display:flex;gap:8px;">
+            <a href="#unterstuetzen" class="forum-nav-btn" style="background:var(--c-warm);box-shadow:0 2px 8px rgba(212,165,116,0.2);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                Unterst&uuml;tzen
+            </a>
             <a href="forum/" class="forum-nav-btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6h-2V4c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h2v4l4-4h4v-2H7l-2 2V6h12v4h2c1.1 0 2-.9 2-2V6zM21 14h-6l-3 3v-3h-1c-1.1 0-2-.9-2-2V9c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v3c0 1.1-.9 2-2 2z"/></svg>
                 Forum
@@ -499,7 +505,7 @@
             </div>
         </section>
 
-        <section class="support-section">
+        <section class="support-section" id="unterstuetzen">
             <div class="wrap">
                 <div class="support-card">
                     <h2>Projekt unterst&uuml;tzen</h2>
