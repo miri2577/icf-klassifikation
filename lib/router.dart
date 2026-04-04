@@ -11,12 +11,17 @@ import 'pages/guide_page.dart';
 import 'pages/onboarding_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/terms_of_service_page.dart';
+import 'pages/splash_page.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => const SplashPage(),
+    ),
+    GoRoute(
+      path: '/home',
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
