@@ -7,11 +7,25 @@ class QualifierBuilder extends StatefulWidget {
   final String domain;
   final Map<String, String> qualifiers;
 
+  /// Anfangs ausgewählter Qualifier-Suffix, z.B. ".2" oder "+3".
+  final String initialQualifier;
+
+  /// Wird bei jeder Änderung mit dem aktuellen Suffix aufgerufen
+  /// ('' wenn kein Qualifier gewählt ist).
+  final ValueChanged<String>? onQualifierChanged;
+
+  /// Öffnet den "Zu Sammlung hinzufügen"-Dialog mit dem gebauten Code.
+  final void Function(String qualifiedCode, String qualifier)?
+      onAddToCollection;
+
   const QualifierBuilder({
     super.key,
     required this.code,
     required this.domain,
     required this.qualifiers,
+    this.initialQualifier = '',
+    this.onQualifierChanged,
+    this.onAddToCollection,
   });
 
   @override
@@ -22,13 +36,40 @@ class _QualifierBuilderState extends State<QualifierBuilder> {
   String? _selectedQualifier;
   bool _isBarrierMode = true; // for environmental factors
 
-  String get _builtCode {
-    if (_selectedQualifier == null) return widget.code;
+  @override
+  void initState() {
+    super.initState();
+    _applyInitial(widget.initialQualifier);
+  }
+
+  void _applyInitial(String suffix) {
+    if (suffix.isEmpty) return;
+    final level = suffix.substring(1);
+    if (widget.domain == 'e') {
+      _isBarrierMode = suffix.startsWith('.');
+      final key =
+          '${_isBarrierMode ? 'barrier' : 'facilitator'}_$level';
+      if (widget.qualifiers.containsKey(key)) _selectedQualifier = key;
+    } else if (suffix.startsWith('.') &&
+        widget.qualifiers.containsKey(level)) {
+      _selectedQualifier = level;
+    }
+  }
+
+  /// Der Qualifier-Suffix des gebauten Codes, z.B. ".2" oder "+3".
+  String get _suffix {
+    if (_selectedQualifier == null) return '';
     if (widget.domain == 'e') {
       final level = _selectedQualifier!.replaceAll(RegExp(r'[^0-9]'), '');
-      return '${widget.code}${_isBarrierMode ? "." : "+"}$level';
+      return '${_isBarrierMode ? "." : "+"}$level';
     }
-    return '${widget.code}.$_selectedQualifier';
+    return '.$_selectedQualifier';
+  }
+
+  String get _builtCode => '${widget.code}$_suffix';
+
+  void _notifyChanged() {
+    widget.onQualifierChanged?.call(_suffix);
   }
 
   @override
@@ -98,6 +139,14 @@ class _QualifierBuilderState extends State<QualifierBuilder> {
                           ),
                     ),
                   ),
+                  if (widget.onAddToCollection != null)
+                    IconButton(
+                      icon: const Icon(Icons.create_new_folder_outlined,
+                          size: 20),
+                      tooltip: l10n.addToCollection,
+                      onPressed: () => widget.onAddToCollection!(
+                          _builtCode, _suffix),
+                    ),
                   IconButton(
                     icon: const Icon(Icons.copy, size: 20),
                     tooltip: l10n.copyCode,
@@ -137,6 +186,7 @@ class _QualifierBuilderState extends State<QualifierBuilder> {
                     _isBarrierMode = values.first;
                     _selectedQualifier = null;
                   });
+                  _notifyChanged();
                 },
               ),
               const SizedBox(height: 12),
@@ -170,6 +220,7 @@ class _QualifierBuilderState extends State<QualifierBuilder> {
                       setState(() {
                         _selectedQualifier = selected ? q.key : null;
                       });
+                      _notifyChanged();
                     },
                   ),
                 );

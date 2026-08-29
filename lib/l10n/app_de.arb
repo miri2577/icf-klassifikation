@@ -199,5 +199,63 @@
   "termsChangesTitle": "Änderungen",
   "termsChangesText": "Diese Bedingungen können bei Bedarf aktualisiert werden.",
   "termsContactTitle": "Kontakt",
-  "termsContactText": "Mirko Richter\nmirko.richter@eingliederungshilfe.cloud"
+  "termsContactText": "Mirko Richter\nmirko.richter@eingliederungshilfe.cloud",
+  "collections": "Sammlungen",
+  "newCollection": "Neue Sammlung",
+  "collectionName": "Name der Sammlung",
+  "createCollection": "Anlegen",
+  "renameCollection": "Umbenennen",
+  "deleteCollection": "Sammlung löschen",
+  "deleteCollectionConfirm": "Sammlung \"{name}\" wirklich löschen?",
+  "@deleteCollectionConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noCollections": "Noch keine Sammlungen",
+  "noCollectionsHint": "Mit Sammlungen gruppierst du Codes samt Qualifier und Notiz – z.B. pro Thema oder anonymem Fall.",
+  "collectionPrivacyHint": "Hinweis: Bitte keine Klarnamen verwenden – anonyme Bezeichnungen genügen.",
+  "entriesCount": "{count, plural, =1{1 Eintrag} other{{count} Einträge}}",
+  "@entriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addToCollection": "Zu Sammlung hinzufügen",
+  "addedToCollection": "Zu \"{name}\" hinzugefügt",
+  "@addedToCollection": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collectionEmpty": "Diese Sammlung ist noch leer",
+  "collectionEmptyHint": "Codes fügst du auf der Detailseite über das Ordner-Symbol im Qualifier-Builder hinzu.",
+  "note": "Notiz",
+  "editEntry": "Eintrag bearbeiten",
+  "save": "Speichern",
+  "removeEntry": "Eintrag entfernen",
+  "exportCsv": "Als CSV exportieren",
+  "exportData": "Daten exportieren (JSON)",
+  "importData": "Daten importieren (JSON)",
+  "importSuccess": "{count} Sammlungen importiert",
+  "@importSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importError": "Import fehlgeschlagen: keine gültige Export-Datei",
+  "dataSection": "Daten",
+  "recentSearches": "Letzte Suchen",
+  "clearSearchHistory": "Suchverlauf löschen",
+  "previousCode": "Vorheriger Code",
+  "nextCode": "Nächster Code",
+  "moreMenu": "Mehr"
 }

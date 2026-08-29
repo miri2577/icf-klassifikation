@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../providers/icf_providers.dart';
 import '../services/pdf_export_service.dart';
 import '../utils/domain_utils.dart';
+import '../widgets/add_to_collection_sheet.dart';
 import '../l10n/app_localizations.dart';
 
 class FavoritesPage extends ConsumerWidget {
@@ -55,7 +56,8 @@ class FavoritesPage extends ConsumerWidget {
               ),
             )
           : ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: EdgeInsets.fromLTRB(
+                  8, 8, 8, 8 + MediaQuery.paddingOf(context).bottom),
               itemCount: favorites.length,
               itemBuilder: (context, index) {
                 final code = favorites[index];
@@ -92,12 +94,25 @@ class FavoritesPage extends ConsumerWidget {
                           style: TextStyle(
                               color: color,
                               fontWeight: FontWeight.w500)),
-                      trailing: IconButton(
-                        icon: const Icon(Icons.favorite,
-                            color: Colors.red),
-                        onPressed: () => ref
-                            .read(favoritesProvider.notifier)
-                            .toggle(code),
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            icon: const Icon(
+                                Icons.create_new_folder_outlined),
+                            tooltip: l10n.addToCollection,
+                            onPressed: () => showAddToCollectionSheet(
+                                context, ref,
+                                code: code),
+                          ),
+                          IconButton(
+                            icon: const Icon(Icons.favorite,
+                                color: Colors.red),
+                            onPressed: () => ref
+                                .read(favoritesProvider.notifier)
+                                .toggle(code),
+                          ),
+                        ],
                       ),
                       onTap: () => context.push('/code/$code'),
                     ),

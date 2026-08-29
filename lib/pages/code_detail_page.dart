@@ -6,6 +6,7 @@ import 'package:share_plus/share_plus.dart' show Share;
 import '../providers/icf_providers.dart';
 import '../widgets/qualifier_builder.dart';
 import '../widgets/code_link_text.dart';
+import '../widgets/add_to_collection_sheet.dart';
 import '../l10n/app_localizations.dart';
 
 class CodeDetailPage extends ConsumerWidget {
@@ -24,8 +25,25 @@ class CodeDetailPage extends ConsumerWidget {
     final favorites = ref.watch(favoritesProvider);
     final isFavorite = favorites.contains(code);
 
-    // Track history
-    Future.microtask(() => ref.read(historyProvider.notifier).add(code));
+    // Track history + In-App-Review-Zähler
+    Future.microtask(() {
+      ref.read(historyProvider.notifier).add(code);
+      ref.read(reviewServiceProvider).onDetailViewed();
+    });
+
+    // Geschwister-Codes für Vor/Zurück-Navigation
+    List<String> siblings = const [];
+    if (code.length > 2) {
+      final parent = dataService.getParentCode(code);
+      if (parent != null && parent.length >= 2) {
+        siblings = dataService.getChildren(parent);
+      }
+    }
+    final siblingIndex = siblings.indexOf(code);
+    final prevCode = siblingIndex > 0 ? siblings[siblingIndex - 1] : null;
+    final nextCode = siblingIndex >= 0 && siblingIndex < siblings.length - 1
+        ? siblings[siblingIndex + 1]
+        : null;
 
     // Build breadcrumb
     final breadcrumbs = <MapEntry<String, String>>[];
@@ -62,11 +80,20 @@ class CodeDetailPage extends ConsumerWidget {
         : dataService.qualifierScale;
 
     final shareText = '$code: $title'
-        '${detail != null && detail.description.isNotEmpty ? '\n\n${detail.description}' : ''}';
+        '${detail != null && detail.description.isNotEmpty ? '\n\n${detail.description}' : ''}'
+        '\n\nIn der App öffnen: icf://open/code/$code';
 
     return Scaffold(
       appBar: AppBar(
         title: Text('$code \u2013 $title'),
+        // Per Deep Link ge\u00f6ffnet: kein Stack zum Zur\u00fcckgehen -> Home-Button
+        leading: context.canPop()
+            ? null
+            : IconButton(
+                icon: const Icon(Icons.home_outlined),
+                tooltip: l10n.appTitle,
+                onPressed: () => context.go('/home'),
+              ),
         actions: [
           // Copy button
           IconButton(
@@ -106,7 +133,8 @@ class CodeDetailPage extends ConsumerWidget {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 800),
           child: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.fromLTRB(
+            16, 16, 16, 16 + MediaQuery.paddingOf(context).bottom),
         children: [
           // Title card
           Semantics(
@@ -135,6 +163,32 @@ class CodeDetailPage extends ConsumerWidget {
               ),
             ),
           ),
+
+          // Geschwister-Navigation
+          if (prevCode != null || nextCode != null)
+            Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Row(
+                children: [
+                  if (prevCode != null)
+                    TextButton.icon(
+                      icon: const Icon(Icons.chevron_left),
+                      label: Text(prevCode),
+                      onPressed: () =>
+                          context.pushReplacement('/code/$prevCode'),
+                    ),
+                  const Spacer(),
+                  if (nextCode != null)
+                    TextButton.icon(
+                      iconAlignment: IconAlignment.end,
+                      icon: const Icon(Icons.chevron_right),
+                      label: Text(nextCode),
+                      onPressed: () =>
+                          context.pushReplacement('/code/$nextCode'),
+                    ),
+                ],
+              ),
+            ),
 
           // Description
           if (detail != null && detail.description.isNotEmpty) ...[
@@ -270,23 +324,49 @@ class CodeDetailPage extends ConsumerWidget {
                   const SizedBox(height: 8),
                   ...breadcrumbs.asMap().entries.map((e) {
                     final indent = e.key * 20.0;
+                    final crumbCode = e.value.key;
+                    // Dom\u00e4nen-Buchstabe hat keine eigene Seite;
+                    // Kapitel \u00f6ffnen die Kapitelseite, Rest die Detailseite.
+                    final VoidCallback? onTap = crumbCode.length == 1
+                        ? null
+                        : crumbCode.length == 2
+                            ? () => context.push('/chapter/$crumbCode')
+                            : () => context.push('/code/$crumbCode');
                     return Padding(
                       padding: EdgeInsets.only(left: indent, top: 4),
-                      child: Row(
-                        children: [
-                          if (e.key > 0)
-                            const Padding(
-                              padding: EdgeInsets.only(right: 4),
-                              child: Text('\u2514 ',
-                                  style: TextStyle(color: Colors.grey)),
+                      child: InkWell(
+                        onTap: onTap,
+                        borderRadius: BorderRadius.circular(4),
+                        child: Row(
+                          children: [
+                            if (e.key > 0)
+                              const Padding(
+                                padding: EdgeInsets.only(right: 4),
+                                child: Text('\u2514 ',
+                                    style: TextStyle(color: Colors.grey)),
+                              ),
+                            Text(
+                              '$crumbCode: ',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                color: onTap != null
+                                    ? Theme.of(context).colorScheme.primary
+                                    : null,
+                              ),
                             ),
-                          Text(
-                            '${e.value.key}: ',
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w600),
-                          ),
-                          Expanded(child: Text(e.value.value)),
-                        ],
+                            Expanded(
+                              child: Text(
+                                e.value.value,
+                                style: onTap != null
+                                    ? TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary)
+                                    : null,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   }),
@@ -338,9 +418,16 @@ class CodeDetailPage extends ConsumerWidget {
           // Qualifier builder
           const SizedBox(height: 16),
           QualifierBuilder(
+            key: ValueKey('qb_$code'),
             code: code,
             domain: domain,
             qualifiers: qualifiers,
+            initialQualifier: ref.read(qualifierMemoryProvider).get(code),
+            onQualifierChanged: (suffix) =>
+                ref.read(qualifierMemoryProvider).set(code, suffix),
+            onAddToCollection: (qualifiedCode, qualifier) =>
+                showAddToCollectionSheet(context, ref,
+                    code: code, qualifier: qualifier),
           ),
 
           // Static qualifier scale

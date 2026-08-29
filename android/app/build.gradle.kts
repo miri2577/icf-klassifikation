@@ -47,7 +47,13 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            // Ohne key.properties (z.B. frischer Checkout) mit Debug-Key
+            // signieren, damit lokale Release-Builds möglich bleiben.
+            signingConfig = if (keystorePropertiesFile.exists()) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
+            }
         }
     }
 }

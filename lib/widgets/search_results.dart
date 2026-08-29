@@ -68,7 +68,9 @@ class SearchResults extends ConsumerWidget {
               : Semantics(
                   label: '${filtered.length} ${l10n.searchResults}',
                   child: ListView.builder(
-                    padding: const EdgeInsets.only(top: 4),
+                    padding: EdgeInsets.only(
+                        top: 4,
+                        bottom: MediaQuery.paddingOf(context).bottom),
                     itemCount: filtered.length,
                     itemBuilder: (context, index) {
                       final entry = filtered[index];
@@ -95,8 +97,14 @@ class SearchResults extends ConsumerWidget {
                               style: TextStyle(
                                   color: color,
                                   fontWeight: FontWeight.w500)),
-                          onTap: () =>
-                              context.push('/code/${entry.key}'),
+                          onTap: () {
+                            // Erfolgreiche Suche in die Suchhistorie
+                            final query = ref.read(searchQueryProvider);
+                            ref
+                                .read(searchHistoryProvider.notifier)
+                                .add(query);
+                            context.push('/code/${entry.key}');
+                          },
                         ),
                       );
                     },

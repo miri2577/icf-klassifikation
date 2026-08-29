@@ -1,6 +1,11 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:share_plus/share_plus.dart';
 import '../providers/icf_providers.dart';
 import '../l10n/app_localizations.dart';
 
@@ -75,6 +80,21 @@ class SettingsPage extends ConsumerWidget {
 
           const Divider(),
 
+          // --- Daten ---
+          _SectionHeader(title: l10n.dataSection),
+          ListTile(
+            leading: const Icon(Icons.upload_outlined),
+            title: Text(l10n.exportData),
+            onTap: () => _exportData(ref),
+          ),
+          ListTile(
+            leading: const Icon(Icons.download_outlined),
+            title: Text(l10n.importData),
+            onTap: () => _importData(context, ref, l10n),
+          ),
+
+          const Divider(),
+
           // --- Über ---
           _SectionHeader(title: l10n.about),
           ListTile(
@@ -103,7 +123,7 @@ class SettingsPage extends ConsumerWidget {
               showLicensePage(
                 context: context,
                 applicationName: 'ICF Klassifikation',
-                applicationVersion: '1.3.0',
+                applicationVersion: '1.4.0',
                 applicationIcon: Padding(
                   padding: const EdgeInsets.all(8),
                   child: ClipRRect(
@@ -124,13 +144,59 @@ class SettingsPage extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.code),
             title: Text(l10n.version),
-            subtitle: const Text('1.3.0'),
+            subtitle: const Text('1.4.0'),
           ),
 
           const SizedBox(height: 32),
         ],
       ),
     );
+  }
+
+  Future<void> _exportData(WidgetRef ref) async {
+    final service = ref.read(collectionsServiceProvider);
+    final favorites = ref.read(favoritesProvider);
+    final jsonString = service.exportJson(favorites);
+    final dir = await getTemporaryDirectory();
+    final now = DateTime.now();
+    final stamp =
+        '${now.year}${now.month.toString().padLeft(2, '0')}${now.day.toString().padLeft(2, '0')}';
+    final file = File('${dir.path}/icf_export_$stamp.json');
+    await file.writeAsString(jsonString);
+    await Share.shareXFiles(
+        [XFile(file.path, mimeType: 'application/json')]);
+  }
+
+  Future<void> _importData(
+      BuildContext context, WidgetRef ref, AppLocalizations l10n) async {
+    final messenger = ScaffoldMessenger.of(context);
+    final result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['json'],
+      withData: true,
+    );
+    final data = result?.files.firstOrNull?.bytes;
+    if (data == null) return;
+    try {
+      final service = ref.read(collectionsServiceProvider);
+      final (count, favorites) =
+          await service.importJson(utf8.decode(data));
+      // Favoriten zusammenführen
+      final notifier = ref.read(favoritesProvider.notifier);
+      for (final code in favorites) {
+        if (!ref.read(favoritesProvider).contains(code)) {
+          await notifier.toggle(code);
+        }
+      }
+      ref.read(collectionsProvider.notifier).reload();
+      messenger.showSnackBar(
+        SnackBar(content: Text(l10n.importSuccess(count))),
+      );
+    } catch (_) {
+      messenger.showSnackBar(
+        SnackBar(content: Text(l10n.importError)),
+      );
+    }
   }
 
   String _themeModeLabel(ThemeMode mode, AppLocalizations l10n) {

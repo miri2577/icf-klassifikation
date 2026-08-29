@@ -12,6 +12,8 @@ import 'pages/onboarding_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/terms_of_service_page.dart';
 import 'pages/splash_page.dart';
+import 'pages/collections_page.dart';
+import 'pages/collection_detail_page.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -77,6 +79,32 @@ final appRouter = GoRouter(
           },
         );
       },
+    ),
+    GoRoute(
+      path: '/collections',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: const CollectionsPage(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0, 1),
+                end: Offset.zero,
+              ).animate(CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeInOut,
+              )),
+              child: child,
+            );
+          },
+        );
+      },
+    ),
+    GoRoute(
+      path: '/collections/:id',
+      builder: (context, state) => CollectionDetailPage(
+          collectionId: state.pathParameters['id']!),
     ),
     GoRoute(
       path: '/favorites',

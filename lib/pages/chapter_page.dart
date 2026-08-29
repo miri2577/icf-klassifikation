@@ -23,7 +23,8 @@ class ChapterPage extends ConsumerWidget {
         title: Text('$chapterCode \u2013 $chapterTitle'),
       ),
       body: ListView.builder(
-        padding: const EdgeInsets.all(8),
+        padding: EdgeInsets.fromLTRB(
+            8, 8, 8, 8 + MediaQuery.paddingOf(context).bottom),
         itemCount: categories.length,
         itemBuilder: (context, index) {
           final cat = categories[index];

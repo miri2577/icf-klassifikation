@@ -618,4 +618,111 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get termsContactText =>
       'Mirko Richter\nmirko.richter@eingliederungshilfe.cloud';
+
+  @override
+  String get collections => 'Collections';
+
+  @override
+  String get newCollection => 'New collection';
+
+  @override
+  String get collectionName => 'Collection name';
+
+  @override
+  String get createCollection => 'Create';
+
+  @override
+  String get renameCollection => 'Rename';
+
+  @override
+  String get deleteCollection => 'Delete collection';
+
+  @override
+  String deleteCollectionConfirm(String name) {
+    return 'Really delete collection \"$name\"?';
+  }
+
+  @override
+  String get noCollections => 'No collections yet';
+
+  @override
+  String get noCollectionsHint =>
+      'Collections group codes with qualifier and note – e.g. per topic or anonymous case.';
+
+  @override
+  String get collectionPrivacyHint =>
+      'Note: please do not store real names – anonymous labels are sufficient.';
+
+  @override
+  String entriesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count entries',
+      one: '1 entry',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get addToCollection => 'Add to collection';
+
+  @override
+  String addedToCollection(String name) {
+    return 'Added to \"$name\"';
+  }
+
+  @override
+  String get collectionEmpty => 'This collection is still empty';
+
+  @override
+  String get collectionEmptyHint =>
+      'Add codes on the detail page via the folder icon in the qualifier builder.';
+
+  @override
+  String get note => 'Note';
+
+  @override
+  String get editEntry => 'Edit entry';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get removeEntry => 'Remove entry';
+
+  @override
+  String get exportCsv => 'Export as CSV';
+
+  @override
+  String get exportData => 'Export data (JSON)';
+
+  @override
+  String get importData => 'Import data (JSON)';
+
+  @override
+  String importSuccess(int count) {
+    return '$count collections imported';
+  }
+
+  @override
+  String get importError => 'Import failed: not a valid export file';
+
+  @override
+  String get dataSection => 'Data';
+
+  @override
+  String get recentSearches => 'Recent searches';
+
+  @override
+  String get clearSearchHistory => 'Clear search history';
+
+  @override
+  String get previousCode => 'Previous code';
+
+  @override
+  String get nextCode => 'Next code';
+
+  @override
+  String get moreMenu => 'More';
 }

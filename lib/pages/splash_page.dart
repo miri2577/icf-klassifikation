@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:io' show Platform;
 import 'package:go_router/go_router.dart';
@@ -48,26 +49,32 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    final bgColor = const Color(0xFFD6E8F0);
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgColor =
+        isDark ? const Color(0xFF16262E) : const Color(0xFFD6E8F0);
 
-    return Scaffold(
-      backgroundColor: bgColor,
-      body: GestureDetector(
-        onTap: _navigateToApp,
-        child: FadeTransition(
-          opacity: _fadeIn,
-          child: Center(
-            child: Padding(
-              padding: _isDesktop
-                  ? const EdgeInsets.all(48)
-                  : const EdgeInsets.all(24),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(_isDesktop ? 20 : 16),
-                child: Image.asset(
-                  _isDesktop
-                      ? 'assets/splash/splash_desktop.png'
-                      : 'assets/splash/splash_mobile.png',
-                  fit: BoxFit.contain,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      // Kein AppBar: Statusbar-Icons passend zum Hintergrund erzwingen.
+      value: isDark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        backgroundColor: bgColor,
+        body: GestureDetector(
+          onTap: _navigateToApp,
+          child: FadeTransition(
+            opacity: _fadeIn,
+            child: Center(
+              child: Padding(
+                padding: _isDesktop
+                    ? const EdgeInsets.all(48)
+                    : const EdgeInsets.all(24),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(_isDesktop ? 20 : 16),
+                  child: Image.asset(
+                    _isDesktop
+                        ? 'assets/splash/splash_desktop.webp'
+                        : 'assets/splash/splash_mobile.webp',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),

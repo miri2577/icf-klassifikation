@@ -1213,6 +1213,186 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Mirko Richter\nmirko.richter@eingliederungshilfe.cloud'**
   String get termsContactText;
+
+  /// No description provided for @collections.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlungen'**
+  String get collections;
+
+  /// No description provided for @newCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Neue Sammlung'**
+  String get newCollection;
+
+  /// No description provided for @collectionName.
+  ///
+  /// In de, this message translates to:
+  /// **'Name der Sammlung'**
+  String get collectionName;
+
+  /// No description provided for @createCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Anlegen'**
+  String get createCollection;
+
+  /// No description provided for @renameCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Umbenennen'**
+  String get renameCollection;
+
+  /// No description provided for @deleteCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlung löschen'**
+  String get deleteCollection;
+
+  /// No description provided for @deleteCollectionConfirm.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlung \"{name}\" wirklich löschen?'**
+  String deleteCollectionConfirm(String name);
+
+  /// No description provided for @noCollections.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Sammlungen'**
+  String get noCollections;
+
+  /// No description provided for @noCollectionsHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Sammlungen gruppierst du Codes samt Qualifier und Notiz – z.B. pro Thema oder anonymem Fall.'**
+  String get noCollectionsHint;
+
+  /// No description provided for @collectionPrivacyHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweis: Bitte keine Klarnamen verwenden – anonyme Bezeichnungen genügen.'**
+  String get collectionPrivacyHint;
+
+  /// No description provided for @entriesCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =1{1 Eintrag} other{{count} Einträge}}'**
+  String entriesCount(int count);
+
+  /// No description provided for @addToCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu Sammlung hinzufügen'**
+  String get addToCollection;
+
+  /// No description provided for @addedToCollection.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu \"{name}\" hinzugefügt'**
+  String addedToCollection(String name);
+
+  /// No description provided for @collectionEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Sammlung ist noch leer'**
+  String get collectionEmpty;
+
+  /// No description provided for @collectionEmptyHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Codes fügst du auf der Detailseite über das Ordner-Symbol im Qualifier-Builder hinzu.'**
+  String get collectionEmptyHint;
+
+  /// No description provided for @note.
+  ///
+  /// In de, this message translates to:
+  /// **'Notiz'**
+  String get note;
+
+  /// No description provided for @editEntry.
+  ///
+  /// In de, this message translates to:
+  /// **'Eintrag bearbeiten'**
+  String get editEntry;
+
+  /// No description provided for @save.
+  ///
+  /// In de, this message translates to:
+  /// **'Speichern'**
+  String get save;
+
+  /// No description provided for @removeEntry.
+  ///
+  /// In de, this message translates to:
+  /// **'Eintrag entfernen'**
+  String get removeEntry;
+
+  /// No description provided for @exportCsv.
+  ///
+  /// In de, this message translates to:
+  /// **'Als CSV exportieren'**
+  String get exportCsv;
+
+  /// No description provided for @exportData.
+  ///
+  /// In de, this message translates to:
+  /// **'Daten exportieren (JSON)'**
+  String get exportData;
+
+  /// No description provided for @importData.
+  ///
+  /// In de, this message translates to:
+  /// **'Daten importieren (JSON)'**
+  String get importData;
+
+  /// No description provided for @importSuccess.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} Sammlungen importiert'**
+  String importSuccess(int count);
+
+  /// No description provided for @importError.
+  ///
+  /// In de, this message translates to:
+  /// **'Import fehlgeschlagen: keine gültige Export-Datei'**
+  String get importError;
+
+  /// No description provided for @dataSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Daten'**
+  String get dataSection;
+
+  /// No description provided for @recentSearches.
+  ///
+  /// In de, this message translates to:
+  /// **'Letzte Suchen'**
+  String get recentSearches;
+
+  /// No description provided for @clearSearchHistory.
+  ///
+  /// In de, this message translates to:
+  /// **'Suchverlauf löschen'**
+  String get clearSearchHistory;
+
+  /// No description provided for @previousCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorheriger Code'**
+  String get previousCode;
+
+  /// No description provided for @nextCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Code'**
+  String get nextCode;
+
+  /// No description provided for @moreMenu.
+  ///
+  /// In de, this message translates to:
+  /// **'Mehr'**
+  String get moreMenu;
 }
 
 class _AppLocalizationsDelegate

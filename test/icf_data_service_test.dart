@@ -1,7 +1,21 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:icf_app/models/icf_detail.dart';
+import 'package:icf_app/services/icf_data_service.dart';
 
 void main() {
+  group('IcfDataService.normalize', () {
+    test('Kleinschreibung und Umlaute', () {
+      expect(IcfDataService.normalize('Gedächtnis'), 'gedaechtnis');
+      expect(IcfDataService.normalize('HÖREN'), 'hoeren');
+      expect(IcfDataService.normalize('Füße'), 'fuesse');
+      expect(IcfDataService.normalize('b110'), 'b110');
+    });
+
+    test('bereits umschriebene Eingabe bleibt stabil', () {
+      expect(IcfDataService.normalize('gedaechtnis'), 'gedaechtnis');
+    });
+  });
+
   group('IcfDetail', () {
     test('fromJson erstellt korrekte Instanz', () {
       final json = {

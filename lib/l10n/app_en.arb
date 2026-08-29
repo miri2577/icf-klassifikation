@@ -199,5 +199,63 @@
   "termsChangesTitle": "Changes",
   "termsChangesText": "These terms may be updated as needed.",
   "termsContactTitle": "Contact",
-  "termsContactText": "Mirko Richter\nmirko.richter@eingliederungshilfe.cloud"
+  "termsContactText": "Mirko Richter\nmirko.richter@eingliederungshilfe.cloud",
+  "collections": "Collections",
+  "newCollection": "New collection",
+  "collectionName": "Collection name",
+  "createCollection": "Create",
+  "renameCollection": "Rename",
+  "deleteCollection": "Delete collection",
+  "deleteCollectionConfirm": "Really delete collection \"{name}\"?",
+  "@deleteCollectionConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "noCollections": "No collections yet",
+  "noCollectionsHint": "Collections group codes with qualifier and note – e.g. per topic or anonymous case.",
+  "collectionPrivacyHint": "Note: please do not store real names – anonymous labels are sufficient.",
+  "entriesCount": "{count, plural, =1{1 entry} other{{count} entries}}",
+  "@entriesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "addToCollection": "Add to collection",
+  "addedToCollection": "Added to \"{name}\"",
+  "@addedToCollection": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "collectionEmpty": "This collection is still empty",
+  "collectionEmptyHint": "Add codes on the detail page via the folder icon in the qualifier builder.",
+  "note": "Note",
+  "editEntry": "Edit entry",
+  "save": "Save",
+  "removeEntry": "Remove entry",
+  "exportCsv": "Export as CSV",
+  "exportData": "Export data (JSON)",
+  "importData": "Import data (JSON)",
+  "importSuccess": "{count} collections imported",
+  "@importSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "importError": "Import failed: not a valid export file",
+  "dataSection": "Data",
+  "recentSearches": "Recent searches",
+  "clearSearchHistory": "Clear search history",
+  "previousCode": "Previous code",
+  "nextCode": "Next code",
+  "moreMenu": "More"
 }

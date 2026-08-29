@@ -636,4 +636,111 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get termsContactText =>
       'Mirko Richter\nmirko.richter@eingliederungshilfe.cloud';
+
+  @override
+  String get collections => 'Sammlungen';
+
+  @override
+  String get newCollection => 'Neue Sammlung';
+
+  @override
+  String get collectionName => 'Name der Sammlung';
+
+  @override
+  String get createCollection => 'Anlegen';
+
+  @override
+  String get renameCollection => 'Umbenennen';
+
+  @override
+  String get deleteCollection => 'Sammlung löschen';
+
+  @override
+  String deleteCollectionConfirm(String name) {
+    return 'Sammlung \"$name\" wirklich löschen?';
+  }
+
+  @override
+  String get noCollections => 'Noch keine Sammlungen';
+
+  @override
+  String get noCollectionsHint =>
+      'Mit Sammlungen gruppierst du Codes samt Qualifier und Notiz – z.B. pro Thema oder anonymem Fall.';
+
+  @override
+  String get collectionPrivacyHint =>
+      'Hinweis: Bitte keine Klarnamen verwenden – anonyme Bezeichnungen genügen.';
+
+  @override
+  String entriesCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einträge',
+      one: '1 Eintrag',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get addToCollection => 'Zu Sammlung hinzufügen';
+
+  @override
+  String addedToCollection(String name) {
+    return 'Zu \"$name\" hinzugefügt';
+  }
+
+  @override
+  String get collectionEmpty => 'Diese Sammlung ist noch leer';
+
+  @override
+  String get collectionEmptyHint =>
+      'Codes fügst du auf der Detailseite über das Ordner-Symbol im Qualifier-Builder hinzu.';
+
+  @override
+  String get note => 'Notiz';
+
+  @override
+  String get editEntry => 'Eintrag bearbeiten';
+
+  @override
+  String get save => 'Speichern';
+
+  @override
+  String get removeEntry => 'Eintrag entfernen';
+
+  @override
+  String get exportCsv => 'Als CSV exportieren';
+
+  @override
+  String get exportData => 'Daten exportieren (JSON)';
+
+  @override
+  String get importData => 'Daten importieren (JSON)';
+
+  @override
+  String importSuccess(int count) {
+    return '$count Sammlungen importiert';
+  }
+
+  @override
+  String get importError => 'Import fehlgeschlagen: keine gültige Export-Datei';
+
+  @override
+  String get dataSection => 'Daten';
+
+  @override
+  String get recentSearches => 'Letzte Suchen';
+
+  @override
+  String get clearSearchHistory => 'Suchverlauf löschen';
+
+  @override
+  String get previousCode => 'Vorheriger Code';
+
+  @override
+  String get nextCode => 'Nächster Code';
+
+  @override
+  String get moreMenu => 'Mehr';
 }

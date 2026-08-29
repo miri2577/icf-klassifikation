@@ -61,7 +61,8 @@ class HistoryPage extends ConsumerWidget {
               ),
             )
           : ListView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: EdgeInsets.fromLTRB(
+                  8, 8, 8, 8 + MediaQuery.paddingOf(context).bottom),
               itemCount: history.length,
               itemBuilder: (context, index) {
                 final code = history[index];

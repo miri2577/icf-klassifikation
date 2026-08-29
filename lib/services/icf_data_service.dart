@@ -9,8 +9,12 @@ class IcfDataService {
   Map<String, String> _environmentalQualifiers = {};
   Map<String, IcfDetail> _details = {};
 
-  // Pre-built search index
-  Map<String, List<String>> _searchIndex = {};
+  // Vorberechnete normalisierte Texte für die Suche
+  Map<String, String> _normalizedTitles = {};
+  Map<String, String> _normalizedDetails = {};
+
+  // Synonym-Lexikon: normalisierter Alltagsbegriff -> ICF-Codes
+  Map<String, List<String>> _synonyms = {};
 
   bool _loaded = false;
   String _currentLocale = 'de';
@@ -56,9 +60,26 @@ class IcfDataService {
       rethrow;
     }
 
+    await _loadSynonyms(suffix);
+
     _currentLocale = locale;
     _buildSearchIndex();
     _loaded = true;
+  }
+
+  Future<void> _loadSynonyms(String suffix) async {
+    _synonyms = {};
+    try {
+      final raw = await rootBundle
+          .loadString('assets/data/icf_synonyms$suffix.json');
+      final data = json.decode(raw) as Map<String, dynamic>;
+      data.forEach((key, value) {
+        _synonyms[normalize(key)] =
+            (value as List<dynamic>).map((e) => e as String).toList();
+      });
+    } catch (_) {
+      // Synonyme sind optional — ohne Datei einfach leer lassen.
+    }
   }
 
   Future<void> switchLocale(String locale) async {
@@ -67,17 +88,27 @@ class IcfDataService {
     await loadData(locale: locale);
   }
 
+  /// Kleinschreibung + Umlaut-Normalisierung, damit z.B. "gedaechtnis"
+  /// auch "Gedächtnis" findet (und umgekehrt).
+  static String normalize(String s) {
+    return s
+        .toLowerCase()
+        .replaceAll('ä', 'ae')
+        .replaceAll('ö', 'oe')
+        .replaceAll('ü', 'ue')
+        .replaceAll('ß', 'ss');
+  }
+
   void _buildSearchIndex() {
-    _searchIndex = {};
-    for (final entry in _codes.entries) {
-      final terms = <String>{
-        entry.key.toLowerCase(),
-        ...entry.value.toLowerCase().split(RegExp(r'\s+')),
-      };
-      for (final term in terms) {
-        if (term.length < 2) continue;
-        _searchIndex.putIfAbsent(term, () => []).add(entry.key);
-      }
+    _normalizedTitles = {
+      for (final e in _codes.entries) e.key: normalize(e.value),
+    };
+    _normalizedDetails = {};
+    for (final e in _details.entries) {
+      final d = e.value;
+      _normalizedDetails[e.key] = normalize(
+        '${d.description} ${d.inclusions.join(' ')} ${d.exclusions.join(' ')}',
+      );
     }
   }
 
@@ -116,24 +147,58 @@ class IcfDataService {
 
   IcfDetail? getDetail(String code) => _details[code];
 
+  /// Liefert die Codes, auf die das Synonym-Lexikon für [q] verweist.
+  /// Ein Synonym greift, wenn der Suchbegriff den Lexikon-Schlüssel
+  /// anschneidet (Präfix in beide Richtungen), z.B. "rollst" -> "rollstuhl".
+  Set<String> _synonymHits(String q) {
+    final hits = <String>{};
+    for (final entry in _synonyms.entries) {
+      if (entry.key.startsWith(q) || q.startsWith(entry.key)) {
+        hits.addAll(entry.value);
+      }
+    }
+    return hits;
+  }
+
+  /// Sucht in Codes, Titeln, Synonymen und Detailtexten (Beschreibung,
+  /// Inkl./Exkl.). Ergebnisse sind nach Relevanz sortiert: exakter Code,
+  /// Code-Präfix, Wortanfang im Titel, Titel-Treffer, Synonym-Treffer,
+  /// Detailtext-Treffer.
   List<MapEntry<String, String>> search(String query) {
     if (query.isEmpty) return [];
-    final lowerQuery = query.toLowerCase();
-    final results = <String>{};
+    final q = normalize(query.trim());
+    if (q.isEmpty) return [];
 
+    final synonymHits = q.length >= 3 ? _synonymHits(q) : const <String>{};
+
+    final scored = <(String, int)>[];
     for (final code in _codes.keys) {
-      if (code.toLowerCase().contains(lowerQuery)) {
-        results.add(code);
+      final normCode = code.toLowerCase();
+      final title = _normalizedTitles[code] ?? '';
+      int? score;
+      if (normCode == q) {
+        score = 0;
+      } else if (normCode.startsWith(q)) {
+        score = 1;
+      } else if (normCode.contains(q)) {
+        score = 2;
+      } else if (title.startsWith(q) || title.contains(' $q')) {
+        score = 3;
+      } else if (title.contains(q)) {
+        score = 4;
+      } else if (synonymHits.contains(code)) {
+        score = 5;
+      } else if (_normalizedDetails[code]?.contains(q) ?? false) {
+        score = 6;
       }
+      if (score != null) scored.add((code, score));
     }
 
-    for (final entry in _codes.entries) {
-      if (entry.value.toLowerCase().contains(lowerQuery)) {
-        results.add(entry.key);
-      }
-    }
-
-    return results.map((code) => MapEntry(code, _codes[code]!)).toList();
+    scored.sort((a, b) {
+      final byScore = a.$2.compareTo(b.$2);
+      return byScore != 0 ? byScore : a.$1.compareTo(b.$1);
+    });
+    return scored.map((e) => MapEntry(e.$1, _codes[e.$1]!)).toList();
   }
 
   Map<String, String> getCodesForDomain(String domainPrefix) {
