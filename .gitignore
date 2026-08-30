@@ -49,3 +49,5 @@ android/key.properties
 android/app/*.jks
 android/app/*.keystore
 tool/who_api/credentials.json
+tool/who_api/fetched_en.json
+tool/who_api/who_icf_all_codes.json
