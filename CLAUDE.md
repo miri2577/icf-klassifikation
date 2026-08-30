@@ -26,7 +26,6 @@ Fachkräfte in Eingliederungshilfe/Reha. Im Google Play Store veröffentlicht
   im unteren Padding (Edge-to-Edge / Gestenleiste)
 - App-Icons: Quelle `assets/icon/`, generiert mit `dart run flutter_launcher_icons`
   (Android adaptive+monochrome; iOS ohne Alpha via `remove_alpha_ios`)
-- Splash-Bilder sind WebP (bewusst — PNGs waren 12 MB; nicht durch große PNGs ersetzen)
 - Android-Signierung: `android/key.properties` (gitignored, liegt NICHT im Repo);
   ohne key.properties fällt der Release-Build auf Debug-Signierung zurück
 - Nie ohne ausdrückliche Erlaubnis des Maintainers pushen

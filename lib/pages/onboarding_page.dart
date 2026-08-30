@@ -35,7 +35,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
     final prefs = ref.read(sharedPreferencesProvider);
     prefs.setBool('onboarding_completed', true);
     prefs.setBool('privacy_accepted', true);
-    context.go('/');
+    context.go('/home');
   }
 
   @override

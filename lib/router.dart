@@ -11,7 +11,6 @@ import 'pages/guide_page.dart';
 import 'pages/onboarding_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/terms_of_service_page.dart';
-import 'pages/splash_page.dart';
 import 'pages/collections_page.dart';
 import 'pages/collection_detail_page.dart';
 
@@ -20,7 +19,7 @@ final appRouter = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const SplashPage(),
+      redirect: (context, state) => '/home',
     ),
     GoRoute(
       path: '/home',
