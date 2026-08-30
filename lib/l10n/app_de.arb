@@ -280,5 +280,6 @@
   "guideIcfCyText": "Für Kinder und Jugendliche von 0 bis 18 Jahren hat die WHO 2007 die ICF-CY (Children and Youth) herausgegeben. Sie ergänzt die ICF um Kategorien für Entwicklungsphasen — etwa Spielverhalten, Spracherwerb oder das Lernen durch Nachahmung — und ist in Frühförderung, Kinder-Eingliederungshilfe und Teilhabeplanung für Kinder das maßgebliche Arbeitsinstrument. Die WHO hat die ICF-CY-Kategorien inzwischen schrittweise in die Haupt-ICF überführt. Eine frei verfügbare deutsche Fassung der ICF-CY existiert derzeit nicht; die deutsche Übersetzung ist als Buch erschienen (Hollenweger/Kraus de Camargo, Hogrefe Verlag). Diese App enthält die Referenzfassung der ICF (BfArM, Stand 2005); die ICF-CY-spezifischen Kategorien sind darin nicht enthalten.",
   "coreSetsTitle": "ICF Core Sets",
   "coreSetsIntro": "ICF Core Sets sind wissenschaftlich konsentierte Auswahlen der für ein Gesundheitsproblem wichtigsten ICF-Kategorien. Sie bieten einen schnellen Einstieg in die Dokumentation — ersetzen aber keine individuelle Bedarfsermittlung, denn die entscheidenden Kontextfaktoren sind immer individuell.",
-  "coreSetSource": "Quelle"
+  "coreSetSource": "Quelle",
+  "printCode": "Drucken"
 }

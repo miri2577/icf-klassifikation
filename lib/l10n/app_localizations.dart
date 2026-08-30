@@ -1531,6 +1531,12 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Quelle'**
   String get coreSetSource;
+
+  /// No description provided for @printCode.
+  ///
+  /// In de, this message translates to:
+  /// **'Drucken'**
+  String get printCode;
 }
 
 class _AppLocalizationsDelegate

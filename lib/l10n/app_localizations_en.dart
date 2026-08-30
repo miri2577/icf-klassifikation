@@ -808,4 +808,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get coreSetSource => 'Source';
+
+  @override
+  String get printCode => 'Print';
 }

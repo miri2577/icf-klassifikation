@@ -280,5 +280,6 @@
   "guideIcfCyText": "For children and adolescents aged 0–18, the WHO published the ICF-CY (Children and Youth) in 2007. It extends the ICF with categories for developmental stages — such as play, language acquisition, or learning through imitation — and is the reference instrument in early intervention and participation planning for children. The WHO has since gradually merged the ICF-CY categories into the main ICF. No freely available German edition of the ICF-CY currently exists; the German translation was published as a book (Hollenweger/Kraus de Camargo, Hogrefe). This app contains the ICF reference version (BfArM, 2005); the ICF-CY-specific categories are not included.",
   "coreSetsTitle": "ICF Core Sets",
   "coreSetsIntro": "ICF Core Sets are scientifically agreed selections of the ICF categories most relevant to a health condition. They offer a quick entry point for documentation — but they do not replace individual needs assessment, because the decisive contextual factors are always individual.",
-  "coreSetSource": "Source"
+  "coreSetSource": "Source",
+  "printCode": "Print"
 }

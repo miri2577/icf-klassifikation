@@ -826,4 +826,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get coreSetSource => 'Quelle';
+
+  @override
+  String get printCode => 'Drucken';
 }

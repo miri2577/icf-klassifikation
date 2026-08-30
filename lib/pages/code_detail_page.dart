@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:share_plus/share_plus.dart' show Share;
+import 'package:share_plus/share_plus.dart';
+import '../utils/share_utils.dart';
 import '../providers/icf_providers.dart';
+import '../services/pdf_export_service.dart';
 import '../widgets/qualifier_builder.dart';
 import '../widgets/code_link_text.dart';
 import '../widgets/add_to_collection_sheet.dart';
@@ -111,9 +113,21 @@ class CodeDetailPage extends ConsumerWidget {
           ),
           // Share button
           IconButton(
+            icon: const Icon(Icons.print_outlined),
+            tooltip: l10n.printCode,
+            onPressed: () => PdfExportService.exportCodes(
+              codes: [MapEntry(code, title)],
+              details: dataService.details,
+              title: '$code – $title',
+            ),
+          ),
+          IconButton(
             icon: const Icon(Icons.share),
             tooltip: l10n.share,
-            onPressed: () => Share.share(shareText),
+            onPressed: () => SharePlus.instance.share(ShareParams(
+              text: shareText,
+              sharePositionOrigin: shareOriginOf(context),
+            )),
           ),
           // Favorite button
           IconButton(

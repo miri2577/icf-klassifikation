@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
+import '../utils/share_utils.dart';
 import '../models/code_collection.dart';
 import '../providers/icf_providers.dart';
 import '../services/collections_service.dart';
@@ -51,7 +52,8 @@ class CollectionDetailPage extends ConsumerWidget {
             IconButton(
               icon: const Icon(Icons.table_chart_outlined),
               tooltip: l10n.exportCsv,
-              onPressed: () => _shareCsv(collection, dataService.getTitle),
+              onPressed: () =>
+                  _shareCsv(context, collection, dataService.getTitle),
             ),
           ],
         ],
@@ -207,8 +209,9 @@ class CollectionDetailPage extends ConsumerWidget {
     }
   }
 
-  Future<void> _shareCsv(
-      CodeCollection collection, String? Function(String) titleOf) async {
+  Future<void> _shareCsv(BuildContext context, CodeCollection collection,
+      String? Function(String) titleOf) async {
+    final origin = shareOriginOf(context);
     final csv = CollectionsService.toCsv(collection, titleOf);
     final dir = await getTemporaryDirectory();
     final safeName = collection.name
@@ -216,6 +219,9 @@ class CollectionDetailPage extends ConsumerWidget {
         .replaceAll(' ', '_');
     final file = File('${dir.path}/icf_$safeName.csv');
     await file.writeAsString('﻿$csv');
-    await Share.shareXFiles([XFile(file.path, mimeType: 'text/csv')]);
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile(file.path, mimeType: 'text/csv')],
+      sharePositionOrigin: origin,
+    ));
   }
 }

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
+import '../utils/share_utils.dart';
 import '../providers/icf_providers.dart';
 import '../l10n/app_localizations.dart';
 
@@ -85,7 +86,7 @@ class SettingsPage extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.upload_outlined),
             title: Text(l10n.exportData),
-            onTap: () => _exportData(ref),
+            onTap: () => _exportData(context, ref),
           ),
           ListTile(
             leading: const Icon(Icons.download_outlined),
@@ -153,7 +154,8 @@ class SettingsPage extends ConsumerWidget {
     );
   }
 
-  Future<void> _exportData(WidgetRef ref) async {
+  Future<void> _exportData(BuildContext context, WidgetRef ref) async {
+    final origin = shareOriginOf(context);
     final service = ref.read(collectionsServiceProvider);
     final favorites = ref.read(favoritesProvider);
     final jsonString = service.exportJson(favorites);
@@ -163,8 +165,10 @@ class SettingsPage extends ConsumerWidget {
         '${now.year}${now.month.toString().padLeft(2, '0')}${now.day.toString().padLeft(2, '0')}';
     final file = File('${dir.path}/icf_export_$stamp.json');
     await file.writeAsString(jsonString);
-    await Share.shareXFiles(
-        [XFile(file.path, mimeType: 'application/json')]);
+    await SharePlus.instance.share(ShareParams(
+      files: [XFile(file.path, mimeType: 'application/json')],
+      sharePositionOrigin: origin,
+    ));
   }
 
   Future<void> _importData(
@@ -173,10 +177,10 @@ class SettingsPage extends ConsumerWidget {
     final result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['json'],
-      withData: true,
     );
-    final data = result?.files.firstOrNull?.bytes;
-    if (data == null) return;
+    final picked = result.firstOrNull;
+    if (picked == null) return;
+    final data = await picked.readAsBytes();
     try {
       final service = ref.read(collectionsServiceProvider);
       final (count, favorites) =
