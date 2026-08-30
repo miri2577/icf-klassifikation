@@ -265,6 +265,47 @@ class GuidePage extends StatelessWidget {
                 ),
               ),
 
+              // Bio-psycho-soziales Modell
+              _Section(
+                icon: Icons.hub_outlined,
+                title: l10n.guideBioPsychoSocial,
+                child: Text(l10n.guideBioPsychoSocialText,
+                    style: theme.textTheme.bodyLarge),
+              ),
+
+              // Kodierungsleitlinien
+              _Section(
+                icon: Icons.rule,
+                title: l10n.guideCodingRules,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(l10n.guideCodingRulesIntro,
+                        style: theme.textTheme.bodyLarge),
+                    const SizedBox(height: 12),
+                    _BulletList(items: [
+                      l10n.guideCodingRule1,
+                      l10n.guideCodingRule2,
+                      l10n.guideCodingRule3,
+                      l10n.guideCodingRule4,
+                      l10n.guideCodingRule5,
+                      l10n.guideCodingRule6,
+                    ]),
+                    const SizedBox(height: 12),
+                    Text(l10n.guidePerformanceCapacity,
+                        style: theme.textTheme.bodyLarge),
+                  ],
+                ),
+              ),
+
+              // ICF-CY
+              _Section(
+                icon: Icons.child_care,
+                title: l10n.guideIcfCy,
+                child: Text(l10n.guideIcfCyText,
+                    style: theme.textTheme.bodyLarge),
+              ),
+
               const SizedBox(height: 32),
             ],
           ),

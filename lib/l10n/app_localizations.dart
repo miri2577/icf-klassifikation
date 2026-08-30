@@ -1393,6 +1393,144 @@ abstract class AppLocalizations {
   /// In de, this message translates to:
   /// **'Mehr'**
   String get moreMenu;
+
+  /// No description provided for @qualifierPerformance.
+  ///
+  /// In de, this message translates to:
+  /// **'1. Leistung – was die Person in ihrer tatsächlichen Umwelt tut'**
+  String get qualifierPerformance;
+
+  /// No description provided for @qualifierCapacity.
+  ///
+  /// In de, this message translates to:
+  /// **'2. Leistungsfähigkeit – maximales Niveau ohne Unterstützung (optional)'**
+  String get qualifierCapacity;
+
+  /// No description provided for @qualifierExtent.
+  ///
+  /// In de, this message translates to:
+  /// **'1. Ausmaß der Schädigung'**
+  String get qualifierExtent;
+
+  /// No description provided for @qualifierNature.
+  ///
+  /// In de, this message translates to:
+  /// **'2. Art der Veränderung (optional)'**
+  String get qualifierNature;
+
+  /// No description provided for @qualifierLocation.
+  ///
+  /// In de, this message translates to:
+  /// **'3. Lokalisation (optional)'**
+  String get qualifierLocation;
+
+  /// No description provided for @lifeAreasTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lebensbereiche'**
+  String get lifeAreasTitle;
+
+  /// No description provided for @lifeAreasIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Bedarfsermittlung in der Eingliederungshilfe (§ 118 SGB IX) orientiert sich an den neun Lebensbereichen der ICF-Komponente „Aktivitäten und Partizipation“ (Kapitel d1–d9). Die von den Bundesländern eingesetzten Instrumente (z.B. BEI_NRW, BEI_BW, ITP) gliedern die Teilhabeplanung nach genau diesen Bereichen. Tippe einen Lebensbereich an, um die zugehörigen ICF-Kategorien zu durchsuchen.'**
+  String get lifeAreasIntro;
+
+  /// No description provided for @guideBioPsychoSocial.
+  ///
+  /// In de, this message translates to:
+  /// **'Das bio-psycho-soziale Modell'**
+  String get guideBioPsychoSocial;
+
+  /// No description provided for @guideBioPsychoSocialText.
+  ///
+  /// In de, this message translates to:
+  /// **'Die ICF beruht auf dem bio-psycho-sozialen Modell von Funktionsfähigkeit und Behinderung: Die Teilhabe eines Menschen ergibt sich aus dem Zusammenspiel seines Gesundheitsproblems (ICD-Diagnose) mit Körperfunktionen und -strukturen (b/s), Aktivitäten und Partizipation (d) sowie den Kontextfaktoren — der Umwelt (e) und personbezogenen Faktoren. Behinderung ist danach keine Eigenschaft einer Person, sondern das Ergebnis einer Wechselwirkung: Dieselbe Schädigung kann je nach Umweltfaktoren (Hilfsmittel, Barrieren, Einstellungen) zu völlig unterschiedlicher Teilhabe führen. Genau deshalb dokumentiert eine vollständige ICF-Beschreibung immer auch Förderfaktoren und Barrieren.'**
+  String get guideBioPsychoSocialText;
+
+  /// No description provided for @guideCodingRules.
+  ///
+  /// In de, this message translates to:
+  /// **'Kodierungsleitlinien (Kurzfassung)'**
+  String get guideCodingRules;
+
+  /// No description provided for @guideCodingRulesIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Die ICF (Anhang 2) gibt verbindliche Regeln vor, wie kodiert wird. Die wichtigsten in Kurzform:'**
+  String get guideCodingRulesIntro;
+
+  /// No description provided for @guideCodingRule1.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur relevante Informationen kodieren: Kodiert wird, was im Kontext des Gesundheitsproblems bedeutsam ist — keine Vorratskodierung.'**
+  String get guideCodingRule1;
+
+  /// No description provided for @guideCodingRule2.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Rückschlüsse: Aus einer Diagnose darf nicht auf Funktionsfähigkeit geschlossen werden und umgekehrt. Jede Kodierung braucht eine explizite Informationsquelle (Beobachtung, Befragung, Untersuchung, Akten).'**
+  String get guideCodingRule2;
+
+  /// No description provided for @guideCodingRule3.
+  ///
+  /// In de, this message translates to:
+  /// **'Codes sind erst mit Beurteilungsmerkmal vollständig: Ein ICF-Code ohne Qualifier hat keine Aussagekraft. Mindestens das erste Beurteilungsmerkmal ist anzugeben.'**
+  String get guideCodingRule3;
+
+  /// No description provided for @guideCodingRule4.
+  ///
+  /// In de, this message translates to:
+  /// **'8 und 9 gezielt nutzen: „8 – nicht spezifiziert“ heißt, ein Problem besteht, aber sein Ausmaß ist nicht bekannt; „9 – nicht anwendbar“ heißt, die Kategorie passt nicht (z.B. d850 Bezahlte Tätigkeit bei einem Kleinkind).'**
+  String get guideCodingRule4;
+
+  /// No description provided for @guideCodingRule5.
+  ///
+  /// In de, this message translates to:
+  /// **'So spezifisch wie möglich: Immer die genaueste zutreffende Kategorie wählen (z.B. d4500 Kurze Entfernungen gehen statt d450 Gehen), wenn die Information das hergibt.'**
+  String get guideCodingRule5;
+
+  /// No description provided for @guideCodingRule6.
+  ///
+  /// In de, this message translates to:
+  /// **'Umweltfaktoren aus Sicht der Person: Ob etwas Barriere oder Förderfaktor ist, wird aus der Perspektive der beschriebenen Person beurteilt.'**
+  String get guideCodingRule6;
+
+  /// No description provided for @guidePerformanceCapacity.
+  ///
+  /// In de, this message translates to:
+  /// **'Leistung und Leistungsfähigkeit: Für Aktivitäten und Partizipation (d) sieht die ICF zwei Beurteilungsmerkmale vor. Das erste beschreibt die Leistung — was eine Person in ihrer tatsächlichen Umwelt tut, einschließlich Hilfsmitteln und personeller Unterstützung. Das zweite beschreibt die Leistungsfähigkeit — das maximal mögliche Niveau in einer standardisierten Umgebung ohne Unterstützung. Die Differenz zwischen beiden zeigt, was Umweltanpassungen bewirken — genau diese Differenz ist der Ansatzpunkt der Bedarfsermittlung.'**
+  String get guidePerformanceCapacity;
+
+  /// No description provided for @guideIcfCy.
+  ///
+  /// In de, this message translates to:
+  /// **'ICF-CY: Kinder und Jugendliche'**
+  String get guideIcfCy;
+
+  /// No description provided for @guideIcfCyText.
+  ///
+  /// In de, this message translates to:
+  /// **'Für Kinder und Jugendliche von 0 bis 18 Jahren hat die WHO 2007 die ICF-CY (Children and Youth) herausgegeben. Sie ergänzt die ICF um Kategorien für Entwicklungsphasen — etwa Spielverhalten, Spracherwerb oder das Lernen durch Nachahmung — und ist in Frühförderung, Kinder-Eingliederungshilfe und Teilhabeplanung für Kinder das maßgebliche Arbeitsinstrument. Die WHO hat die ICF-CY-Kategorien inzwischen schrittweise in die Haupt-ICF überführt. Eine frei verfügbare deutsche Fassung der ICF-CY existiert derzeit nicht; die deutsche Übersetzung ist als Buch erschienen (Hollenweger/Kraus de Camargo, Hogrefe Verlag). Diese App enthält die Referenzfassung der ICF (BfArM, Stand 2005); die ICF-CY-spezifischen Kategorien sind darin nicht enthalten.'**
+  String get guideIcfCyText;
+
+  /// No description provided for @coreSetsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'ICF Core Sets'**
+  String get coreSetsTitle;
+
+  /// No description provided for @coreSetsIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'ICF Core Sets sind wissenschaftlich konsentierte Auswahlen der für ein Gesundheitsproblem wichtigsten ICF-Kategorien. Sie bieten einen schnellen Einstieg in die Dokumentation — ersetzen aber keine individuelle Bedarfsermittlung, denn die entscheidenden Kontextfaktoren sind immer individuell.'**
+  String get coreSetsIntro;
+
+  /// No description provided for @coreSetSource.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle'**
+  String get coreSetSource;
 }
 
 class _AppLocalizationsDelegate

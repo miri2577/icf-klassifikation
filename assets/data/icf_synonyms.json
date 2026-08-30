@@ -1,239 +1,810 @@
 {
-  "rollstuhl": ["e1201"],
-  "rollator": ["e1201"],
-  "gehhilfe": ["e1201"],
-  "prothese": ["e1151"],
-  "orthese": ["e1151"],
-  "hörgerät": ["e1251", "b230"],
-  "brille": ["e1251", "b210"],
-  "sehhilfe": ["e1251", "b210"],
-  "medikamente": ["e1101"],
-  "arznei": ["e1101"],
-  "gehen": ["d450"],
-  "rennen": ["d4552"],
-  "treppensteigen": ["d4551"],
-  "treppe": ["d4551"],
-  "krabbeln": ["d4550"],
-  "springen": ["d4553"],
-  "klettern": ["d4551"],
-  "stehen": ["d4104", "d4154"],
-  "sitzen": ["d4103", "d4153"],
-  "aufstehen": ["d410"],
-  "hinlegen": ["d4100"],
-  "gleichgewicht": ["b235"],
-  "schwindel": ["b2401"],
-  "feinmotorik": ["d440"],
-  "greifen": ["d4401"],
-  "heben": ["d430"],
-  "tragen": ["d430"],
-  "autofahren": ["d4751", "d470"],
-  "bus": ["d4702"],
-  "öffentliche verkehrsmittel": ["d4702"],
-  "fahrrad": ["d4750"],
-  "waschen": ["d510"],
-  "duschen": ["d5101"],
-  "baden": ["d5101"],
-  "körperpflege": ["d520"],
-  "zähneputzen": ["d5201"],
-  "toilette": ["d530"],
-  "inkontinenz": ["b6202", "b525"],
-  "ankleiden": ["d540"],
-  "anziehen": ["d540"],
-  "ausziehen": ["d540"],
-  "kleidung": ["d540"],
-  "essen": ["d550"],
-  "trinken": ["d560"],
-  "kochen": ["d630"],
-  "mahlzeit": ["d630", "d550"],
-  "einkaufen": ["d620"],
-  "haushalt": ["d640"],
-  "putzen": ["d640"],
-  "wäsche": ["d6400"],
-  "gedächtnis": ["b144"],
-  "erinnern": ["b144"],
-  "vergesslichkeit": ["b144"],
-  "demenz": ["b144", "b114"],
-  "konzentration": ["b140"],
-  "aufmerksamkeit": ["b140"],
-  "adhs": ["b140", "b130"],
-  "orientierung": ["b114"],
-  "intelligenz": ["b117"],
-  "geistige behinderung": ["b117"],
-  "bewusstsein": ["b110"],
-  "koma": ["b110"],
-  "epilepsie": ["b110"],
-  "anfall": ["b110"],
-  "schlaf": ["b134"],
-  "schlafstörung": ["b134"],
-  "antrieb": ["b130"],
-  "motivation": ["b1301"],
-  "energie": ["b130"],
-  "impulskontrolle": ["b1304"],
-  "emotionen": ["b152"],
-  "gefühle": ["b152"],
-  "stimmung": ["b152"],
-  "depression": ["b152", "b130"],
-  "angst": ["b152"],
-  "wahrnehmung": ["b156"],
-  "halluzination": ["b156"],
-  "denken": ["b160"],
-  "wahn": ["b160"],
-  "zwang": ["b160"],
-  "problemlösen": ["d175", "b164"],
-  "planen": ["b1641"],
-  "organisieren": ["b1641"],
-  "zeitmanagement": ["b1642", "d230"],
-  "selbstwahrnehmung": ["b180"],
-  "körperschema": ["b1801"],
-  "persönlichkeit": ["b126"],
-  "selbstvertrauen": ["b1266"],
-  "selbstwert": ["b1266"],
-  "psychomotorik": ["b147"],
-  "rechnen": ["d172", "d150", "b172"],
-  "dyskalkulie": ["d150", "b172"],
-  "lesen": ["d166", "d140"],
-  "legasthenie": ["d140", "d145"],
-  "schreiben": ["d170", "d145"],
-  "sprechen": ["d330", "b320"],
-  "stottern": ["b330"],
-  "stimme": ["b310"],
-  "aphasie": ["b167"],
-  "sehen": ["b210"],
-  "blind": ["b210"],
-  "sehbehinderung": ["b210"],
-  "hören": ["b230"],
-  "schwerhörig": ["b230"],
-  "gehörlos": ["b230"],
-  "taub": ["b230"],
-  "tinnitus": ["b2400"],
-  "schmerz": ["b280"],
-  "rückenschmerzen": ["b28013"],
-  "kopfschmerzen": ["b28010"],
-  "migräne": ["b28010"],
-  "tastsinn": ["b265"],
-  "geruch": ["b255"],
-  "geschmack": ["b250"],
-  "herz": ["b410"],
-  "blutdruck": ["b420"],
-  "atmung": ["b440"],
-  "luftnot": ["b460"],
-  "ausdauer": ["b455"],
-  "belastbarkeit": ["b455"],
-  "müdigkeit": ["b4552", "b130"],
-  "erschöpfung": ["b4552", "b130"],
-  "fatigue": ["b4552"],
-  "verdauung": ["b515"],
-  "gewicht": ["b530"],
-  "diabetes": ["b540"],
-  "blutzucker": ["b540"],
-  "menstruation": ["b650"],
-  "sexualität": ["b640"],
-  "haut": ["b810"],
-  "wunde": ["b820", "b810"],
-  "muskelkraft": ["b730"],
-  "kraft": ["b730"],
-  "lähmung": ["b730", "b735"],
-  "spastik": ["b735"],
-  "muskeltonus": ["b735"],
-  "tremor": ["b7651"],
-  "zittern": ["b7651"],
-  "tics": ["b7652"],
-  "gelenke": ["b710"],
-  "beweglichkeit": ["b710"],
-  "schlucken": ["b5105"],
-  "schluckstörung": ["b5105"],
-  "gehirn": ["s110"],
-  "wirbelsäule": ["s7600"],
-  "kommunikation": ["d3", "b167"],
-  "gebärdensprache": ["d320", "d340"],
-  "unterstützte kommunikation": ["d360", "e1251"],
-  "talker": ["e1251", "d360"],
-  "telefonieren": ["d3600"],
-  "gespräch": ["d350"],
-  "unterhaltung": ["d350"],
-  "diskussion": ["d355"],
-  "lernen": ["d155", "d1"],
-  "zuhören": ["d115"],
-  "zuschauen": ["d110"],
-  "nachahmen": ["d130"],
-  "üben": ["d135"],
-  "entscheiden": ["d177"],
-  "entscheidungen": ["d177"],
-  "tagesstruktur": ["d230"],
-  "alltag": ["d230"],
-  "routine": ["d230"],
-  "stress": ["d240"],
-  "stressbewältigung": ["d240"],
-  "soziale kompetenz": ["d710", "d720"],
-  "freunde": ["d750", "e320"],
-  "freundschaft": ["d750"],
-  "familie": ["d760", "e310"],
-  "partnerschaft": ["d770"],
-  "ehe": ["d770"],
-  "fremde": ["d730"],
-  "aggression": ["b152", "d720"],
-  "eltern": ["d7600"],
-  "schule": ["d820", "e585"],
-  "kindergarten": ["d815"],
-  "kita": ["d815"],
-  "ausbildung": ["d825"],
-  "studium": ["d830"],
-  "arbeit": ["d850", "d845"],
-  "beruf": ["d850", "d845"],
-  "job": ["d850", "d845"],
-  "arbeitslos": ["d845"],
-  "werkstatt": ["d850", "e590"],
-  "ehrenamt": ["d855"],
-  "geld": ["d860", "d870"],
-  "finanzen": ["d870", "d860"],
-  "schulden": ["d870"],
-  "freizeit": ["d920"],
-  "hobby": ["d920"],
-  "sport": ["d9201"],
-  "spielen": ["d9200"],
-  "religion": ["d930"],
-  "glaube": ["d930"],
-  "kirche": ["d930"],
-  "verein": ["d910"],
-  "wählen": ["d950"],
-  "politik": ["d950"],
-  "kunst": ["d9202"],
-  "musik": ["d9202"],
-  "wohnung": ["e155", "d610"],
-  "wohnen": ["e155", "d610"],
-  "barrierefreiheit": ["e150", "e155"],
-  "assistenz": ["e340"],
-  "betreuer": ["e340", "e355"],
-  "pflegedienst": ["e340", "e580"],
-  "kollegen": ["e325"],
-  "nachbarn": ["e325"],
-  "therapeut": ["e355", "e580"],
-  "arzt": ["e355", "e580"],
-  "stigma": ["e460"],
-  "vorurteile": ["e460"],
-  "sozialamt": ["e570"],
-  "rente": ["e570"],
-  "sozialleistungen": ["e570"],
-  "recht": ["e550"],
-  "computer": ["e125", "d360"],
-  "smartphone": ["e125", "d3600"],
-  "internet": ["e125"],
-  "lärm": ["e250"],
-  "licht": ["e240"],
-  "klima": ["e225"],
-  "wetter": ["e225", "e2250"],
-  "haustier": ["e350"],
-  "assistenzhund": ["e350"],
-  "ernährung": ["d550", "b515"],
-  "sucht": ["b1303"],
-  "alkohol": ["b1303"],
-  "drogen": ["b1303"],
-  "rauchen": ["b1303"],
-  "hygiene": ["d510", "d520"],
-  "mimik": ["d335"],
-  "gestik": ["d335"],
-  "körpersprache": ["d335"],
-  "autismus": ["b122", "d710", "d720"],
-  "psychose": ["b160", "b156"],
-  "gesundheit": ["d570"]
+  "rollstuhl": [
+    "e1201"
+  ],
+  "rollator": [
+    "e1201"
+  ],
+  "gehhilfe": [
+    "e1201"
+  ],
+  "prothese": [
+    "e1151"
+  ],
+  "orthese": [
+    "e1151"
+  ],
+  "hörgerät": [
+    "e1251",
+    "b230"
+  ],
+  "brille": [
+    "e1251",
+    "b210"
+  ],
+  "sehhilfe": [
+    "e1251",
+    "b210"
+  ],
+  "medikamente": [
+    "e1101"
+  ],
+  "arznei": [
+    "e1101"
+  ],
+  "gehen": [
+    "d450"
+  ],
+  "rennen": [
+    "d4552"
+  ],
+  "treppensteigen": [
+    "d4551"
+  ],
+  "treppe": [
+    "d4551"
+  ],
+  "krabbeln": [
+    "d4550"
+  ],
+  "springen": [
+    "d4553"
+  ],
+  "klettern": [
+    "d4551"
+  ],
+  "stehen": [
+    "d4104",
+    "d4154"
+  ],
+  "sitzen": [
+    "d4103",
+    "d4153"
+  ],
+  "aufstehen": [
+    "d410"
+  ],
+  "hinlegen": [
+    "d4100"
+  ],
+  "gleichgewicht": [
+    "b235"
+  ],
+  "schwindel": [
+    "b2401"
+  ],
+  "feinmotorik": [
+    "d440"
+  ],
+  "greifen": [
+    "d4401"
+  ],
+  "heben": [
+    "d430"
+  ],
+  "tragen": [
+    "d430"
+  ],
+  "autofahren": [
+    "d4751",
+    "d470"
+  ],
+  "bus": [
+    "d4702"
+  ],
+  "öffentliche verkehrsmittel": [
+    "d4702"
+  ],
+  "fahrrad": [
+    "d4750"
+  ],
+  "waschen": [
+    "d510"
+  ],
+  "duschen": [
+    "d5101"
+  ],
+  "baden": [
+    "d5101"
+  ],
+  "körperpflege": [
+    "d520"
+  ],
+  "zähneputzen": [
+    "d5201"
+  ],
+  "toilette": [
+    "d530"
+  ],
+  "inkontinenz": [
+    "b6202",
+    "b525"
+  ],
+  "ankleiden": [
+    "d540"
+  ],
+  "anziehen": [
+    "d540"
+  ],
+  "ausziehen": [
+    "d540"
+  ],
+  "kleidung": [
+    "d540"
+  ],
+  "essen": [
+    "d550"
+  ],
+  "trinken": [
+    "d560"
+  ],
+  "kochen": [
+    "d630"
+  ],
+  "mahlzeit": [
+    "d630",
+    "d550"
+  ],
+  "einkaufen": [
+    "d620"
+  ],
+  "haushalt": [
+    "d640"
+  ],
+  "putzen": [
+    "d640"
+  ],
+  "wäsche": [
+    "d6400"
+  ],
+  "gedächtnis": [
+    "b144"
+  ],
+  "erinnern": [
+    "b144"
+  ],
+  "vergesslichkeit": [
+    "b144"
+  ],
+  "demenz": [
+    "b144",
+    "b114"
+  ],
+  "konzentration": [
+    "b140"
+  ],
+  "aufmerksamkeit": [
+    "b140"
+  ],
+  "adhs": [
+    "b140",
+    "b130"
+  ],
+  "orientierung": [
+    "b114"
+  ],
+  "intelligenz": [
+    "b117"
+  ],
+  "geistige behinderung": [
+    "b117"
+  ],
+  "bewusstsein": [
+    "b110"
+  ],
+  "koma": [
+    "b110"
+  ],
+  "epilepsie": [
+    "b110"
+  ],
+  "anfall": [
+    "b110"
+  ],
+  "schlaf": [
+    "b134"
+  ],
+  "schlafstörung": [
+    "b134"
+  ],
+  "antrieb": [
+    "b130"
+  ],
+  "motivation": [
+    "b1301"
+  ],
+  "energie": [
+    "b130"
+  ],
+  "impulskontrolle": [
+    "b1304"
+  ],
+  "emotionen": [
+    "b152"
+  ],
+  "gefühle": [
+    "b152"
+  ],
+  "stimmung": [
+    "b152"
+  ],
+  "depression": [
+    "b152",
+    "b130"
+  ],
+  "angst": [
+    "b152"
+  ],
+  "wahrnehmung": [
+    "b156"
+  ],
+  "halluzination": [
+    "b156"
+  ],
+  "denken": [
+    "b160"
+  ],
+  "wahn": [
+    "b160"
+  ],
+  "zwang": [
+    "b160"
+  ],
+  "problemlösen": [
+    "d175",
+    "b164"
+  ],
+  "planen": [
+    "b1641"
+  ],
+  "organisieren": [
+    "b1641"
+  ],
+  "zeitmanagement": [
+    "b1642",
+    "d230"
+  ],
+  "selbstwahrnehmung": [
+    "b180"
+  ],
+  "körperschema": [
+    "b1801"
+  ],
+  "persönlichkeit": [
+    "b126"
+  ],
+  "selbstvertrauen": [
+    "b1266"
+  ],
+  "selbstwert": [
+    "b1266"
+  ],
+  "psychomotorik": [
+    "b147"
+  ],
+  "rechnen": [
+    "d172",
+    "d150",
+    "b172"
+  ],
+  "dyskalkulie": [
+    "d150",
+    "b172"
+  ],
+  "lesen": [
+    "d166",
+    "d140"
+  ],
+  "legasthenie": [
+    "d140",
+    "d145"
+  ],
+  "schreiben": [
+    "d170",
+    "d145"
+  ],
+  "sprechen": [
+    "d330",
+    "b320"
+  ],
+  "stottern": [
+    "b330"
+  ],
+  "stimme": [
+    "b310"
+  ],
+  "aphasie": [
+    "b167"
+  ],
+  "sehen": [
+    "b210"
+  ],
+  "blind": [
+    "b210"
+  ],
+  "sehbehinderung": [
+    "b210"
+  ],
+  "hören": [
+    "b230"
+  ],
+  "schwerhörig": [
+    "b230"
+  ],
+  "gehörlos": [
+    "b230"
+  ],
+  "taub": [
+    "b230"
+  ],
+  "tinnitus": [
+    "b2400"
+  ],
+  "schmerz": [
+    "b280"
+  ],
+  "rückenschmerzen": [
+    "b28013"
+  ],
+  "kopfschmerzen": [
+    "b28010"
+  ],
+  "migräne": [
+    "b28010"
+  ],
+  "tastsinn": [
+    "b265"
+  ],
+  "geruch": [
+    "b255"
+  ],
+  "geschmack": [
+    "b250"
+  ],
+  "herz": [
+    "b410"
+  ],
+  "blutdruck": [
+    "b420"
+  ],
+  "atmung": [
+    "b440"
+  ],
+  "luftnot": [
+    "b460"
+  ],
+  "ausdauer": [
+    "b455"
+  ],
+  "belastbarkeit": [
+    "b455"
+  ],
+  "müdigkeit": [
+    "b4552",
+    "b130"
+  ],
+  "erschöpfung": [
+    "b4552",
+    "b130"
+  ],
+  "fatigue": [
+    "b4552"
+  ],
+  "verdauung": [
+    "b515"
+  ],
+  "gewicht": [
+    "b530"
+  ],
+  "diabetes": [
+    "b540"
+  ],
+  "blutzucker": [
+    "b540"
+  ],
+  "menstruation": [
+    "b650"
+  ],
+  "sexualität": [
+    "b640"
+  ],
+  "haut": [
+    "b810"
+  ],
+  "wunde": [
+    "b820",
+    "b810"
+  ],
+  "muskelkraft": [
+    "b730"
+  ],
+  "kraft": [
+    "b730"
+  ],
+  "lähmung": [
+    "b730",
+    "b735"
+  ],
+  "spastik": [
+    "b735"
+  ],
+  "muskeltonus": [
+    "b735"
+  ],
+  "tremor": [
+    "b7651"
+  ],
+  "zittern": [
+    "b7651"
+  ],
+  "tics": [
+    "b7652"
+  ],
+  "gelenke": [
+    "b710"
+  ],
+  "beweglichkeit": [
+    "b710"
+  ],
+  "schlucken": [
+    "b5105"
+  ],
+  "schluckstörung": [
+    "b5105"
+  ],
+  "gehirn": [
+    "s110"
+  ],
+  "wirbelsäule": [
+    "s7600"
+  ],
+  "kommunikation": [
+    "d3",
+    "b167"
+  ],
+  "gebärdensprache": [
+    "d320",
+    "d340"
+  ],
+  "unterstützte kommunikation": [
+    "d360",
+    "e1251"
+  ],
+  "talker": [
+    "e1251",
+    "d360"
+  ],
+  "telefonieren": [
+    "d3600"
+  ],
+  "gespräch": [
+    "d350"
+  ],
+  "unterhaltung": [
+    "d350"
+  ],
+  "diskussion": [
+    "d355"
+  ],
+  "lernen": [
+    "d155",
+    "d1"
+  ],
+  "zuhören": [
+    "d115"
+  ],
+  "zuschauen": [
+    "d110"
+  ],
+  "nachahmen": [
+    "d130"
+  ],
+  "üben": [
+    "d135"
+  ],
+  "entscheiden": [
+    "d177"
+  ],
+  "entscheidungen": [
+    "d177"
+  ],
+  "tagesstruktur": [
+    "d230"
+  ],
+  "alltag": [
+    "d230"
+  ],
+  "routine": [
+    "d230"
+  ],
+  "stress": [
+    "d240"
+  ],
+  "stressbewältigung": [
+    "d240"
+  ],
+  "soziale kompetenz": [
+    "d710",
+    "d720"
+  ],
+  "freunde": [
+    "d750",
+    "e320"
+  ],
+  "freundschaft": [
+    "d750"
+  ],
+  "familie": [
+    "d760",
+    "e310"
+  ],
+  "partnerschaft": [
+    "d770"
+  ],
+  "ehe": [
+    "d770"
+  ],
+  "fremde": [
+    "d730"
+  ],
+  "aggression": [
+    "b152",
+    "d720"
+  ],
+  "eltern": [
+    "d7600"
+  ],
+  "schule": [
+    "d820",
+    "e585"
+  ],
+  "kindergarten": [
+    "d815"
+  ],
+  "kita": [
+    "d815"
+  ],
+  "ausbildung": [
+    "d825"
+  ],
+  "studium": [
+    "d830"
+  ],
+  "arbeit": [
+    "d850",
+    "d845"
+  ],
+  "beruf": [
+    "d850",
+    "d845"
+  ],
+  "job": [
+    "d850",
+    "d845"
+  ],
+  "arbeitslos": [
+    "d845"
+  ],
+  "werkstatt": [
+    "d850",
+    "e590"
+  ],
+  "ehrenamt": [
+    "d855"
+  ],
+  "geld": [
+    "d860",
+    "d870"
+  ],
+  "finanzen": [
+    "d870",
+    "d860"
+  ],
+  "schulden": [
+    "d870"
+  ],
+  "freizeit": [
+    "d920"
+  ],
+  "hobby": [
+    "d920"
+  ],
+  "sport": [
+    "d9201"
+  ],
+  "spielen": [
+    "d9200"
+  ],
+  "religion": [
+    "d930"
+  ],
+  "glaube": [
+    "d930"
+  ],
+  "kirche": [
+    "d930"
+  ],
+  "verein": [
+    "d910"
+  ],
+  "wählen": [
+    "d950"
+  ],
+  "politik": [
+    "d950"
+  ],
+  "kunst": [
+    "d9202"
+  ],
+  "musik": [
+    "d9202"
+  ],
+  "wohnung": [
+    "e155",
+    "d610"
+  ],
+  "wohnen": [
+    "e155",
+    "d610"
+  ],
+  "barrierefreiheit": [
+    "e150",
+    "e155"
+  ],
+  "assistenz": [
+    "e340"
+  ],
+  "betreuer": [
+    "e340",
+    "e355"
+  ],
+  "pflegedienst": [
+    "e340",
+    "e580"
+  ],
+  "kollegen": [
+    "e325"
+  ],
+  "nachbarn": [
+    "e325"
+  ],
+  "therapeut": [
+    "e355",
+    "e580"
+  ],
+  "arzt": [
+    "e355",
+    "e580"
+  ],
+  "stigma": [
+    "e460"
+  ],
+  "vorurteile": [
+    "e460"
+  ],
+  "sozialamt": [
+    "e570"
+  ],
+  "rente": [
+    "e570"
+  ],
+  "sozialleistungen": [
+    "e570"
+  ],
+  "recht": [
+    "e550"
+  ],
+  "computer": [
+    "e125",
+    "d360"
+  ],
+  "smartphone": [
+    "e125",
+    "d3600"
+  ],
+  "internet": [
+    "e125"
+  ],
+  "lärm": [
+    "e250"
+  ],
+  "licht": [
+    "e240"
+  ],
+  "klima": [
+    "e225"
+  ],
+  "wetter": [
+    "e225",
+    "e2250"
+  ],
+  "haustier": [
+    "e350"
+  ],
+  "assistenzhund": [
+    "e350"
+  ],
+  "ernährung": [
+    "d550",
+    "b515"
+  ],
+  "sucht": [
+    "b1303"
+  ],
+  "alkohol": [
+    "b1303"
+  ],
+  "drogen": [
+    "b1303"
+  ],
+  "rauchen": [
+    "b1303"
+  ],
+  "hygiene": [
+    "d510",
+    "d520"
+  ],
+  "mimik": [
+    "d335"
+  ],
+  "gestik": [
+    "d335"
+  ],
+  "körpersprache": [
+    "d335"
+  ],
+  "autismus": [
+    "b122",
+    "d710",
+    "d720"
+  ],
+  "psychose": [
+    "b160",
+    "b156"
+  ],
+  "gesundheit": [
+    "d570"
+  ],
+  "teilhabe": [
+    "d910",
+    "d920"
+  ],
+  "toilettengang": [
+    "d530"
+  ],
+  "budget": [
+    "d870"
+  ],
+  "beziehung": [
+    "d770",
+    "d760"
+  ],
+  "krise": [
+    "d240"
+  ],
+  "wfbm": [
+    "d850",
+    "e590"
+  ],
+  "praktikum": [
+    "d840"
+  ],
+  "einsamkeit": [
+    "d750",
+    "e320"
+  ],
+  "bahn": [
+    "d470"
+  ],
+  "zug": [
+    "d470"
+  ],
+  "behörde": [
+    "e570",
+    "e575"
+  ],
+  "amt": [
+    "e570",
+    "e575"
+  ]
 }
