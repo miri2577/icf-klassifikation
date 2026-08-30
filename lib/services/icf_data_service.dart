@@ -62,6 +62,14 @@ class IcfDataService {
         (key, value) =>
             MapEntry(key, IcfDetail.fromJson(value as Map<String, dynamic>)),
       );
+
+      // Die lokalisierten Details sind unvollständig (Stand 2026: en deckt
+      // nur einen Teil der 1417 Kategorien ab). Fehlende Einträge und leere
+      // Felder werden aus der vollständigen deutschen Referenz aufgefüllt —
+      // ein deutscher Text ist als Nachschlagewerk besser als gar keiner.
+      if (locale != 'de') {
+        await _fillMissingDetailsFromGerman();
+      }
     } catch (_) {
       // Fallback to German if locale-specific files don't exist
       if (locale != 'de') {
@@ -93,6 +101,32 @@ class IcfDataService {
     } catch (_) {
       // Synonyme sind optional — ohne Datei einfach leer lassen.
     }
+  }
+
+  Future<void> _fillMissingDetailsFromGerman() async {
+    final deJson =
+        await rootBundle.loadString('assets/data/icf_details.json');
+    final deData = json.decode(deJson) as Map<String, dynamic>;
+    deData.forEach((key, value) {
+      final de = IcfDetail.fromJson(value as Map<String, dynamic>);
+      final existing = _details[key];
+      if (existing == null) {
+        _details[key] = de;
+        return;
+      }
+      final needsDescription = existing.description.trim().isEmpty;
+      final needsInclusions = existing.inclusions.isEmpty;
+      final needsExclusions = existing.exclusions.isEmpty;
+      if (needsDescription || needsInclusions || needsExclusions) {
+        _details[key] = IcfDetail(
+          title: existing.title.trim().isEmpty ? de.title : existing.title,
+          description:
+              needsDescription ? de.description : existing.description,
+          inclusions: needsInclusions ? de.inclusions : existing.inclusions,
+          exclusions: needsExclusions ? de.exclusions : existing.exclusions,
+        );
+      }
+    });
   }
 
   Future<void> _loadCoreSets(String suffix) async {
