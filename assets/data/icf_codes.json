@@ -1444,5 +1444,29 @@
     "facilitator_2": "Mäßiger Förderfaktor",
     "facilitator_3": "Erheblicher Förderfaktor",
     "facilitator_4": "Vollständiger Förderfaktor"
+  },
+  "structureNatureQualifiers": {
+    "0": "Keine Veränderung der Struktur",
+    "1": "Vollständiges Fehlen",
+    "2": "Teilweises Fehlen",
+    "3": "Zusätzlicher Teil",
+    "4": "Abweichende Ausmaße",
+    "5": "Diskontinuität",
+    "6": "Abweichende Position",
+    "7": "Qualitative Strukturveränderung, einschließlich Ansammlung von Flüssigkeit",
+    "8": "Nicht spezifiziert",
+    "9": "Nicht anwendbar"
+  },
+  "structureLocationQualifiers": {
+    "0": "Mehr als eine Region",
+    "1": "Rechts",
+    "2": "Links",
+    "3": "Beidseitig",
+    "4": "Frontal",
+    "5": "Dorsal",
+    "6": "Proximal",
+    "7": "Distal",
+    "8": "Nicht spezifiziert",
+    "9": "Nicht anwendbar"
   }
 }

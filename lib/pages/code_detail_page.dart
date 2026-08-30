@@ -422,6 +422,11 @@ class CodeDetailPage extends ConsumerWidget {
             code: code,
             domain: domain,
             qualifiers: qualifiers,
+            natureQualifiers:
+                domain == 's' ? dataService.structureNatureQualifiers : const {},
+            locationQualifiers: domain == 's'
+                ? dataService.structureLocationQualifiers
+                : const {},
             initialQualifier: ref.read(qualifierMemoryProvider).get(code),
             onQualifierChanged: (suffix) =>
                 ref.read(qualifierMemoryProvider).set(code, suffix),

@@ -60,5 +60,58 @@ void main() {
 
       expect(find.text('b110.3'), findsOneWidget);
     });
+
+    testWidgets('d-Code: Leistung und Leistungsfähigkeit ergeben zwei Stellen',
+        (tester) async {
+      await tester.pumpWidget(createTestApp(
+        SingleChildScrollView(
+          child: const QualifierBuilder(
+            code: 'd450',
+            domain: 'd',
+            qualifiers: {
+              '0': 'kein Problem',
+              '1': 'leicht',
+              '2': 'mäßig',
+            },
+          ),
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      // Erste Stelle (Leistung) wählen: erste "2"-Chip
+      await tester.tap(find.text('2').first);
+      await tester.pumpAndSettle();
+      expect(find.text('d450.2'), findsOneWidget);
+
+      // Zweite Stelle (Leistungsfähigkeit) wählen: "1" in der zweiten Reihe
+      await tester.tap(find.text('1').last);
+      await tester.pumpAndSettle();
+      expect(find.text('d450.21'), findsOneWidget);
+    });
+
+    testWidgets('s-Code: drei Stellen inkl. Art und Lokalisation',
+        (tester) async {
+      await tester.pumpWidget(createTestApp(
+        SingleChildScrollView(
+          child: const QualifierBuilder(
+            code: 's730',
+            domain: 's',
+            qualifiers: {'0': 'kein Problem', '4': 'voll ausgeprägt'},
+            natureQualifiers: {'1': 'vollständiges Fehlen'},
+            locationQualifiers: {'2': 'links'},
+            initialQualifier: '.41',
+          ),
+        ),
+      ));
+      await tester.pumpAndSettle();
+
+      // initialQualifier .41 wird wiederhergestellt
+      expect(find.text('s730.41'), findsOneWidget);
+
+      // Dritte Stelle (Lokalisation "2") ergänzen
+      await tester.tap(find.text('2'));
+      await tester.pumpAndSettle();
+      expect(find.text('s730.412'), findsOneWidget);
+    });
   });
 }

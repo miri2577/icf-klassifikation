@@ -1444,5 +1444,29 @@
     "facilitator_2": "Moderate facilitator",
     "facilitator_3": "Substantial facilitator",
     "facilitator_4": "Complete facilitator"
+  },
+  "structureNatureQualifiers": {
+    "0": "No change in structure",
+    "1": "Total absence",
+    "2": "Partial absence",
+    "3": "Additional part",
+    "4": "Aberrant dimensions",
+    "5": "Discontinuity",
+    "6": "Deviating position",
+    "7": "Qualitative changes in structure, including accumulation of fluid",
+    "8": "Not specified",
+    "9": "Not applicable"
+  },
+  "structureLocationQualifiers": {
+    "0": "More than one region",
+    "1": "Right",
+    "2": "Left",
+    "3": "Both sides",
+    "4": "Front",
+    "5": "Back",
+    "6": "Proximal",
+    "7": "Distal",
+    "8": "Not specified",
+    "9": "Not applicable"
   }
 }

@@ -7,6 +7,8 @@ class IcfDataService {
   Map<String, String> _codes = {};
   Map<String, String> _qualifierScale = {};
   Map<String, String> _environmentalQualifiers = {};
+  Map<String, String> _structureNatureQualifiers = {};
+  Map<String, String> _structureLocationQualifiers = {};
   Map<String, IcfDetail> _details = {};
 
   // Vorberechnete normalisierte Texte für die Suche
@@ -23,7 +25,13 @@ class IcfDataService {
   Map<String, String> get codes => _codes;
   Map<String, String> get qualifierScale => _qualifierScale;
   Map<String, String> get environmentalQualifiers => _environmentalQualifiers;
+  Map<String, String> get structureNatureQualifiers =>
+      _structureNatureQualifiers;
+  Map<String, String> get structureLocationQualifiers =>
+      _structureLocationQualifiers;
   Map<String, IcfDetail> get details => _details;
+  List<IcfCoreSet> _coreSets = [];
+  List<IcfCoreSet> get coreSets => _coreSets;
   bool get isLoaded => _loaded;
   String get currentLocale => _currentLocale;
 
@@ -41,6 +49,10 @@ class IcfDataService {
           Map<String, String>.from(codesData['qualifierScale'] as Map);
       _environmentalQualifiers =
           Map<String, String>.from(codesData['environmentalQualifiers'] as Map);
+      _structureNatureQualifiers = Map<String, String>.from(
+          codesData['structureNatureQualifiers'] as Map? ?? {});
+      _structureLocationQualifiers = Map<String, String>.from(
+          codesData['structureLocationQualifiers'] as Map? ?? {});
 
       final detailsJson =
           await rootBundle.loadString('assets/data/icf_details$suffix.json');
@@ -61,6 +73,7 @@ class IcfDataService {
     }
 
     await _loadSynonyms(suffix);
+    await _loadCoreSets(suffix);
 
     _currentLocale = locale;
     _buildSearchIndex();
@@ -79,6 +92,20 @@ class IcfDataService {
       });
     } catch (_) {
       // Synonyme sind optional — ohne Datei einfach leer lassen.
+    }
+  }
+
+  Future<void> _loadCoreSets(String suffix) async {
+    _coreSets = [];
+    try {
+      final raw = await rootBundle
+          .loadString('assets/data/icf_core_sets$suffix.json');
+      final data = json.decode(raw) as List<dynamic>;
+      _coreSets = data
+          .map((e) => IcfCoreSet.fromJson(e as Map<String, dynamic>))
+          .toList();
+    } catch (_) {
+      // Core Sets sind optional — ohne Datei einfach leer lassen.
     }
   }
 
@@ -219,5 +246,34 @@ class IcfDataService {
             e.key.startsWith(categoryCode) &&
             e.key.length > categoryCode.length)
         .toList();
+  }
+}
+
+
+/// Ein ICF Core Set: eine kuratierte, publizierte Auswahl von ICF-Kategorien
+/// für ein Gesundheitsproblem oder einen Versorgungskontext.
+class IcfCoreSet {
+  final String id;
+  final String name;
+  final String description;
+  final String source;
+  final List<String> codes;
+
+  const IcfCoreSet({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.source,
+    required this.codes,
+  });
+
+  factory IcfCoreSet.fromJson(Map<String, dynamic> json) {
+    return IcfCoreSet(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String? ?? '',
+      source: json['source'] as String? ?? '',
+      codes: (json['codes'] as List<dynamic>).map((e) => e as String).toList(),
+    );
   }
 }
