@@ -8,6 +8,18 @@ import '../widgets/chapter_card.dart';
 import '../widgets/search_results.dart';
 import '../l10n/app_localizations.dart';
 
+/// Breite der [NavigationRail] im Wide-Layout. Wird am Rail selbst gesetzt und
+/// zum Ausrichten der Suchleiste verwendet: die AppBar spannt ueber die volle
+/// Scaffold-Breite, der Inhalt aber nur ueber den Bereich rechts der Rail.
+const double _kRailWidth = 80;
+const double _kRailDividerWidth = 1;
+
+/// Maximale Inhaltsbreite; abzueglich des ListView-Paddings ergibt sich die
+/// sichtbare Kartenbreite, auf die auch die Suchleiste begrenzt wird.
+const double _kContentMaxWidth = 800;
+const double _kContentPadding = 16;
+const double _kCardWidth = _kContentMaxWidth - 2 * _kContentPadding;
+
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
@@ -90,6 +102,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 children: [
                   NavigationRail(
                     selectedIndex: selectedIndex,
+                    minWidth: _kRailWidth,
                     labelType: NavigationRailLabelType.all,
                     onDestinationSelected: (i) {
                       ref
@@ -105,7 +118,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                       ),
                     ),
                   ),
-                  const VerticalDivider(thickness: 1, width: 1),
+                  const VerticalDivider(
+                      thickness: _kRailDividerWidth, width: _kRailDividerWidth),
                   Expanded(child: content),
                 ],
               )
@@ -157,25 +171,39 @@ class _HomePageState extends ConsumerState<HomePage> {
           ],
           bottom: PreferredSize(
             preferredSize: const Size.fromHeight(60),
+            // Die AppBar spannt ueber die volle Scaffold-Breite, der Inhalt
+            // steht aber rechts der NavigationRail. Ohne diesen Ausgleich sind
+            // Suchleiste und Karten um die halbe Rail-Breite versetzt.
             child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-              child: SearchBar(
-                controller: _searchController,
-                focusNode: _searchFocus,
-                hintText: l10n.searchHint,
-                leading: const Icon(Icons.search),
-                trailing: [
-                  if (searchQuery.isNotEmpty)
-                    IconButton(
-                      icon: const Icon(Icons.clear),
-                      onPressed: () {
-                        _searchController.clear();
-                        ref.read(searchQueryProvider.notifier).state = '';
-                        FocusScope.of(context).unfocus();
-                      },
-                    ),
-                ],
-                onChanged: _onSearchChanged,
+              padding: EdgeInsets.fromLTRB(
+                  isWide
+                      ? _kRailWidth + _kRailDividerWidth + _kContentPadding
+                      : _kContentPadding,
+                  0,
+                  _kContentPadding,
+                  8),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: _kCardWidth),
+                  child: SearchBar(
+                    controller: _searchController,
+                    focusNode: _searchFocus,
+                    hintText: l10n.searchHint,
+                    leading: const Icon(Icons.search),
+                    trailing: [
+                      if (searchQuery.isNotEmpty)
+                        IconButton(
+                          icon: const Icon(Icons.clear),
+                          onPressed: () {
+                            _searchController.clear();
+                            ref.read(searchQueryProvider.notifier).state = '';
+                            FocusScope.of(context).unfocus();
+                          },
+                        ),
+                    ],
+                    onChanged: _onSearchChanged,
+                  ),
+                ),
               ),
             ),
           ),
@@ -249,10 +277,11 @@ class _HomePageState extends ConsumerState<HomePage> {
 
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 800),
+        constraints: const BoxConstraints(maxWidth: _kContentMaxWidth),
         child: ListView(
-          padding: EdgeInsets.fromLTRB(
-              16, 16, 16, 16 + MediaQuery.paddingOf(context).bottom),
+          padding: EdgeInsets.fromLTRB(_kContentPadding, _kContentPadding,
+              _kContentPadding,
+              _kContentPadding + MediaQuery.paddingOf(context).bottom),
           children: [
             Semantics(
               header: true,
