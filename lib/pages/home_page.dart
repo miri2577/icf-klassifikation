@@ -143,6 +143,22 @@ class _HomePageState extends ConsumerState<HomePage> {
               onSelected: (route) => context.push(route),
               itemBuilder: (context) => [
                 PopupMenuItem(
+                  value: '/lebensbereiche',
+                  child: ListTile(
+                    leading: const Icon(Icons.category_outlined),
+                    title: Text(l10n.lifeAreasTitle),
+                    contentPadding: EdgeInsets.zero,
+                  ),
+                ),
+                PopupMenuItem(
+                  value: '/coresets',
+                  child: ListTile(
+                    leading: const Icon(Icons.checklist_rtl),
+                    title: Text(l10n.coreSetsTitle),
+                    contentPadding: EdgeInsets.zero,
+                  ),
+                ),
+                PopupMenuItem(
                   value: '/guide',
                   child: ListTile(
                     leading: const Icon(Icons.menu_book),

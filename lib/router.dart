@@ -8,6 +8,8 @@ import 'pages/history_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/impressum_page.dart';
 import 'pages/guide_page.dart';
+import 'pages/life_areas_page.dart';
+import 'pages/core_sets_page.dart';
 import 'pages/onboarding_page.dart';
 import 'pages/privacy_policy_page.dart';
 import 'pages/terms_of_service_page.dart';
@@ -188,6 +190,19 @@ final appRouter = GoRouter(
           },
         );
       },
+    ),
+    GoRoute(
+      path: '/lebensbereiche',
+      builder: (context, state) => const LifeAreasPage(),
+    ),
+    GoRoute(
+      path: '/coresets',
+      builder: (context, state) => const CoreSetsPage(),
+    ),
+    GoRoute(
+      path: '/coresets/:id',
+      builder: (context, state) =>
+          CoreSetDetailPage(setId: state.pathParameters['id']!),
     ),
     GoRoute(
       path: '/guide',
