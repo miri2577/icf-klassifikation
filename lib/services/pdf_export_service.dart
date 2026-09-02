@@ -97,7 +97,8 @@ class PdfExportService {
       ),
     );
 
-    await Printing.layoutPdf(onLayout: (format) => pdf.save());
+    await Printing.layoutPdf(
+        dynamicLayout: false, onLayout: (format) => pdf.save());
   }
 
   static Future<void> exportCodes({
@@ -209,6 +210,7 @@ class PdfExportService {
       ),
     );
 
-    await Printing.layoutPdf(onLayout: (format) => pdf.save());
+    await Printing.layoutPdf(
+        dynamicLayout: false, onLayout: (format) => pdf.save());
   }
 }
