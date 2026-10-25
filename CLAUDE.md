@@ -3,6 +3,7 @@
 Flutter-App: Nachschlagewerk der WHO-ICF-Klassifikation (1417 Codes, de/en) für
 Fachkräfte in Eingliederungshilfe/Reha. Im Google Play Store veröffentlicht
 (com.icf.icf_app), iOS-Release in Vorbereitung — **siehe `docs/IOS-RELEASE.md`**.
+Offene Punkte und bekannte Fehler: **`TODO.md`**.
 
 ## Architektur
 
